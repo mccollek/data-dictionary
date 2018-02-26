@@ -1,0 +1,2 @@
+class DataArchetype < ApplicationRecord
+end

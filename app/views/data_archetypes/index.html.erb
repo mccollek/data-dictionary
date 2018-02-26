@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Data Archetypes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @data_archetypes.each do |data_archetype| %>
+      <tr>
+        <td><%= data_archetype.name %></td>
+        <td><%= data_archetype.description %></td>
+        <td><%= link_to 'Show', data_archetype %></td>
+        <td><%= link_to 'Edit', edit_data_archetype_path(data_archetype) %></td>
+        <td><%= link_to 'Destroy', data_archetype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Data Archetype', new_data_archetype_path %>

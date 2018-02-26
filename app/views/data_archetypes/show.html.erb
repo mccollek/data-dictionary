@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @data_archetype.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @data_archetype.description %>
+</p>
+
+<%= link_to 'Edit', edit_data_archetype_path(@data_archetype) %> |
+<%= link_to 'Back', data_archetypes_path %>

@@ -1,0 +1,27 @@
+<%= form_with(model: data_archetype, local: true) do |form| %>
+  <% if data_archetype.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(data_archetype.errors.count, "error") %> prohibited this data_archetype from being saved:</h2>
+
+      <ul>
+      <% data_archetype.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :data_archetype_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :data_archetype_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
