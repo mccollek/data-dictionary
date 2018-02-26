@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  production: false
+  data_starts: 2018-02-26
+  data_ends: 2018-02-26
+  data_source: one
+
+two:
+  name: MyString
+  production: false
+  data_starts: 2018-02-26
+  data_ends: 2018-02-26
+  data_source: two

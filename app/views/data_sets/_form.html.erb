@@ -1,0 +1,42 @@
+<%= form_with(model: data_set, local: true) do |form| %>
+  <% if data_set.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(data_set.errors.count, "error") %> prohibited this data_set from being saved:</h2>
+
+      <ul>
+      <% data_set.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :data_set_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :production %>
+    <%= form.check_box :production, id: :data_set_production %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data_starts %>
+    <%= form.date_select :data_starts, id: :data_set_data_starts %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data_ends %>
+    <%= form.date_select :data_ends, id: :data_set_data_ends %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data_source_id %>
+    <%= form.text_field :data_source_id, id: :data_set_data_source_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
