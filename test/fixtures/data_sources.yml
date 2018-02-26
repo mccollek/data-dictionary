@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  production: false
+  refresh_frequency: MyString
+  reliability: MyString
+  location: MyText
+
+two:
+  name: MyString
+  production: false
+  refresh_frequency: MyString
+  reliability: MyString
+  location: MyText
