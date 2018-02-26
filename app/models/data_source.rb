@@ -3,4 +3,8 @@ class DataSource < ApplicationRecord
   has_many :data_sets, dependent: :destroy
   validates :name, uniqueness: { case_sensitive: false }, presence: true
   validates_inclusion_of :refresh_frequency, :in => REFRESH_FREQUENCIES
+
+  def self.refresh_frequency_options
+    REFRESH_FREQUENCIES
+  end
 end

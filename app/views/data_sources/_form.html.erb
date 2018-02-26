@@ -17,13 +17,18 @@
   </div>
 
   <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :data_source_description %>
+  </div>
+
+  <div class="field">
     <%= form.label :production %>
     <%= form.check_box :production, id: :data_source_production %>
   </div>
 
   <div class="field">
     <%= form.label :refresh_frequency %>
-    <%= form.text_field :refresh_frequency, id: :data_source_refresh_frequency %>
+    <%= form.select :refresh_frequency, DataSource.refresh_frequency_options %>
   </div>
 
   <div class="field">
@@ -34,6 +39,11 @@
   <div class="field">
     <%= form.label :location %>
     <%= form.text_area :location, id: :data_source_location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, id: :data_source_notes %>
   </div>
 
   <div class="actions">
