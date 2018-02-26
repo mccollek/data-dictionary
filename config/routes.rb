@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :data_elements
   resources :data_sets
   resources :data_archetypes
   resources :data_sources

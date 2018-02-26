@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180226151307) do
+ActiveRecord::Schema.define(version: 20180226151606) do
 
   create_table "data_archetypes", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "data_elements", force: :cascade do |t|
+    t.string "name"
+    t.integer "data_set_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["data_set_id"], name: "index_data_elements_on_data_set_id"
   end
 
   create_table "data_set_archetypes", force: :cascade do |t|

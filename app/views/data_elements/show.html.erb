@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @data_element.name %>
+</p>
+
+<p>
+  <strong>Data set:</strong>
+  <%= @data_element.data_set %>
+</p>
+
+<%= link_to 'Edit', edit_data_element_path(@data_element) %> |
+<%= link_to 'Back', data_elements_path %>

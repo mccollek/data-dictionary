@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Data Elements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Data set</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @data_elements.each do |data_element| %>
+      <tr>
+        <td><%= data_element.name %></td>
+        <td><%= data_element.data_set %></td>
+        <td><%= link_to 'Show', data_element %></td>
+        <td><%= link_to 'Edit', edit_data_element_path(data_element) %></td>
+        <td><%= link_to 'Destroy', data_element, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Data Element', new_data_element_path %>
