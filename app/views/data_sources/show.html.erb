@@ -6,6 +6,12 @@
 </p>
 
 <p>
+  <strong>Description:</strong>
+  <%= @data_source.description%>
+</p>
+
+
+<p>
   <strong>Production:</strong>
   <%= @data_source.production %>
 </p>
@@ -23,6 +29,11 @@
 <p>
   <strong>Location:</strong>
   <%= @data_source.location %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @data_source.notes%>
 </p>
 
 <%= link_to 'Edit', edit_data_source_path(@data_source) %> |
