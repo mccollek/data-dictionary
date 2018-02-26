@@ -17,23 +17,28 @@
   </div>
 
   <div class="field">
+    <%= form.label :data_archetype_ids %>
+    <%= form.select :data_archetype_ids, DataArchetype.all.collect {|x| [x.name, x.id]},{},multiple: true%>
+  </div>
+
+  <div class="field">
     <%= form.label :production %>
     <%= form.check_box :production, id: :data_set_production %>
   </div>
 
   <div class="field">
     <%= form.label :data_starts %>
-    <%= form.date_select :data_starts, id: :data_set_data_starts %>
+    <%= form.date_select :data_starts, {:include_blank => true, :default => nil} %>
   </div>
 
   <div class="field">
     <%= form.label :data_ends %>
-    <%= form.date_select :data_ends, id: :data_set_data_ends %>
+    <%= form.date_select :data_ends, {:include_blank => true, :default => nil}%>
   </div>
 
   <div class="field">
     <%= form.label :data_source_id %>
-    <%= form.text_field :data_source_id, id: :data_set_data_source_id %>
+    <%= form.collection_select :data_source_id, DataSource.all,:id, :name %>
   </div>
 
   <div class="actions">

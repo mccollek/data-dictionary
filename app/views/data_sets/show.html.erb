@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Data Archetypes:</strong>
+  <%= @data_set.  data_archetypes.map{|da| da.name}.to_sentence%>
+</p>
+
+<p>
   <strong>Production:</strong>
   <%= @data_set.production %>
 </p>
@@ -22,7 +27,7 @@
 
 <p>
   <strong>Data source:</strong>
-  <%= @data_set.data_source %>
+  <%= @data_set.data_source.name %>
 </p>
 
 <%= link_to 'Edit', edit_data_set_path(@data_set) %> |

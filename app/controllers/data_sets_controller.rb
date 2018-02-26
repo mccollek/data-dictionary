@@ -25,7 +25,6 @@ class DataSetsController < ApplicationController
   # POST /data_sets.json
   def create
     @data_set = DataSet.new(data_set_params)
-
     respond_to do |format|
       if @data_set.save
         format.html { redirect_to @data_set, notice: 'Data set was successfully created.' }
@@ -69,6 +68,6 @@ class DataSetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def data_set_params
-      params.require(:data_set).permit(:name, :production, :data_starts, :data_ends, :data_source_id)
+      params.require(:data_set).permit(:name, :production, :data_starts, :data_ends, :data_source_id, data_archetype_ids: [])
     end
 end
