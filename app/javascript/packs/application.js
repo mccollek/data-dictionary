@@ -8,3 +8,7 @@
 // layout file, like app/views/layouts/application.html.erb
 
 console.log('Hello World from Webpacker')
+import 'react-bootstrap';
+import 'bootstrap'
+import "bootstrap/dist/css/bootstrap.css"
+// import "/node_modules/bootstrap/scss/bootstrap.scss"

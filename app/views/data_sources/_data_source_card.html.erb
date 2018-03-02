@@ -1,0 +1,7 @@
+  <div class="jumbotron">
+    <h5 ><%= @data_source.name %></h5>
+    <%= link_to 'more...', data_source_path(@data_source.id)%>
+  </div>
+  <% @data_source.data_sets.each do |data_set| %>
+    <%= render partial:'data_sets/data_set_card', locals: {data_set: data_set} %>
+  <% end %>

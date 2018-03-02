@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
-  resources :data_elements
-  resources :data_sets
-  resources :data_archetypes
-  resources :data_sources
+  resources :data_sets do
+    resources :data_elements
+  end
+  resources :data_archetypes do
+    resources :data_sets do
+      resources :data_elements
+    end
+  end
+  resources :data_sources do
+    resources :data_sets do
+      resources :data_elements
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
