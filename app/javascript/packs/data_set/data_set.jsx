@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import style from './style.scss';
-import ReactDOM from "react-dom";
+import style from './data_set.scss';
 
 
 /**
@@ -11,38 +9,50 @@ import ReactDOM from "react-dom";
  * @example
  * <Dataset title="Budget Numbers" />
  */
-const DataSet = ({ title, }) => (
-    <div className="DataSet">
-        <div className="DataSetTitle">
-            {title}
-        </div>
+class DataSet extends React.Component{
+ constructor(props) {
+     super(props);
+     this.state = {
+         title: 'No Title'
+     };
+ }
 
-
-    </div>
-);
-
-DataSet.propTypes = {
-    /**
-     * @property {boolean} primary determines is a primary button (emphasized)
-     */
-    // primary: PropTypes.bool,
-
-    /**
-     * @property {string} text label to be displayed within the button
-     */
-    text: PropTypes.string
+ render() {
+     return (
+         <div className={style.DataSet}>
+             This is the DataSet
+             <div className={style.DataSetTitle}>
+                 {this.props.value.title}
+             </div>
+         </div>
+     )
+ }
 }
-
-DataSet.defaultProps = {
-    title: 'DataSet Title!'
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    ReactDOM.render(
-        <DataSet title="DataSetTest" />,
-        document.body.appendChild(document.createElement('div')),
-    )
-})
-
-
+//
+// DataSet.propTypes = {
+//     /**
+//      * @property {boolean} primary determines is a primary button (emphasized)
+//      */
+//     // primary: PropTypes.bool,
+//
+//     /**
+//      * @property {string} text label to be displayed within the button
+//      */
+//     text: PropTypes.string
+// }
+//
+// DataSet.defaultProps = {
+//     title: 'DataSet Title!'
+// }
+//
+// // document.addEventListener('DOMContentLoaded', () => {
+// //     ReactDOM.render(
+// //         <DataSet title="DataSetTest" />,
+// //         document.body.appendChild(document.createElement('div')),
+// //     )
+// // })
+//
+//
+//
+//
 export default DataSet;

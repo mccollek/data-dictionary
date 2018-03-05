@@ -1,0 +1,22 @@
+.DataSource {
+  min-width: 15rem;
+  min-height: 8rem;
+  box-sizing: border-box;
+  border: 2px solid rgba(18,18,17, 0.2);
+  border-radius: .5rem;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-transition: border .125s ease, background .125s ease;
+  transition: border .125s ease, background .125s ease;
+
+}
+
+.DataSource .DataSourceTitle {
+  border-bottom: 2px solid rgba(18,18,17, 0.2);
+  font-size: 16px;
+  font-weight: 700;
+  padding: .5rem;
+  width: 100%;
+
+}

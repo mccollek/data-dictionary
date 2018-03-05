@@ -14,9 +14,11 @@
     <div class="container">
       <%= yield %>
 
-      <%= javascript_pack_tag 'data_set/data_set' %>
+      <div id="dictionary-app">
+      </div>
       <%= javascript_pack_tag 'application' %>
-      <%= stylesheet_pack_tag 'data_set/style' %>
+      <%= javascript_pack_tag 'dictionary_workspace/dictionary_workspace' %>
     </div>
+
   </body>
 </html>
