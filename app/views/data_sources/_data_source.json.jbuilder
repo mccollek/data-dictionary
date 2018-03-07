@@ -1,5 +1,5 @@
 json.extract! data_source, :id, :name, :production, :refresh_frequency, :reliability, :location, :created_at, :updated_at
 json.url data_source_url(data_source, format: :json)
 json.data_sets data_source.data_sets do |data_set|
-  json.(data_set, :id, :name)
+  json.(data_set, :id, :name, :data_starts, :data_ends, :production)
 end

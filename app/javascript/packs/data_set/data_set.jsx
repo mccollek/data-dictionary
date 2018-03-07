@@ -10,12 +10,28 @@ import style from './data_set.scss';
  * <Dataset title="Budget Numbers" />
  */
 
+function DataSetClass(production){
+    if(production == true){
+        return("DataSet ProductionDataSet")
+    }else{
+        return("DataSet")
+    }
+
+}
+
 function DataSetList(props) {
     const DataSets = props.source.value;
     const DataSetItems = DataSets.map((data_set) =>
-        <div className="DataSet" key={data_set.id}>
+        <div className={DataSetClass(data_set.production)} key={data_set.id}>
             <div className="DataSetTitle">
                 {data_set.name}
+            </div>
+            <div className="DataSetDetails">
+                <ul>
+                    <li>
+                        {data_set.data_starts} - {data_set.data_ends}
+                    </li>
+                </ul>
             </div>
         </div>
     );

@@ -46,7 +46,6 @@ class DictionaryWorkspace extends React.Component{
                     // console.log(result);
                     this.setState({
                         isLoaded: true,
-                        name: 'test title from dataDictionary state',
                         data_sources: [
                             result
                         ]
