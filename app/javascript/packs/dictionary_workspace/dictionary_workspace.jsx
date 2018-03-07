@@ -11,21 +11,70 @@ import DataSource from "../data_source/data_source";
  * @example
  * <Dataset title="Budget Numbers" />
  */
+
+function loadData(url) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            console.log(xhttp.responseText);
+        }
+    };
+    xhttp.open("GET", url, true);
+    xhttp.send();
+};
+
+function getDataSourcesFromApiAsync() {
+    return
+}
 class DictionaryWorkspace extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            title: 'test title from datasource',
+            error: null,
+            isLoaded: false,
+            items: []
         };
+
+    }
+
+    //https://reactjs.org/docs/faq-ajax.html
+    componentDidMount() {
+        fetch("/data_sources.json")
+            .then((response) => response.json())
+            .then(
+                (result) => {
+                    // console.log(result);
+                    this.setState({
+                        isLoaded: true,
+                        name: 'test title from dataDictionary state',
+                        data_sources: [
+                            result
+                        ]
+                    });
+                })
+            .catch((error) => {
+                console.error(error);
+                this.setState({
+                    isLoaded: true,
+                    error: error
+                });
+            });
+
     }
 
     render() {
-        return (
-            <div className="dictionary-app">
-                This is the DictionaryWorkspace
-                <DataSource value={this.state}/>
-            </div>
-        );
+        const { error, isLoaded, items } = this.state;
+        if (error) {
+            return <div>Error: {error.message}</div>;
+        } else if (!isLoaded) {
+            return <div>Loading...</div>;
+        } else {
+            return (
+                <div className="dictionary-app">
+                    <DataSource value={this.state}/>
+                </div>
+            );
+        }
     }
 }
 

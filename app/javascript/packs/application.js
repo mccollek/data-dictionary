@@ -10,6 +10,6 @@
 console.log('Hello World from Webpacker')
 import 'react-bootstrap';
 import 'bootstrap'
-import "bootstrap/dist/css/bootstrap.css"
 import './dictionary_workspace/index'
 import './hello_react'
+

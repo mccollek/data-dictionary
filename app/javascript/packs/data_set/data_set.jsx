@@ -9,50 +9,39 @@ import style from './data_set.scss';
  * @example
  * <Dataset title="Budget Numbers" />
  */
+
+function DataSetList(props) {
+    const DataSets = props.source.value;
+    const DataSetItems = DataSets.map((data_set) =>
+        <div className="DataSet" key={data_set.id}>
+            <div className="DataSetTitle">
+                {data_set.name}
+            </div>
+        </div>
+    );
+    return(
+        DataSetItems
+    )
+}
+
+
 class DataSet extends React.Component{
  constructor(props) {
      super(props);
-     this.state = {
-         title: 'No Title'
-     };
  }
 
  render() {
-     return (
-         <div className={style.DataSet}>
-             This is the DataSet
-             <div className={style.DataSetTitle}>
-                 {this.props.value.title}
-             </div>
-         </div>
-     )
+     // console.log(this.props.value);
+
+     if (this.props.value.length > 0){
+         return (
+             <DataSetList source={this.props}/>
+         )
+
+     }else{
+         return null
+     }
  }
 }
-//
-// DataSet.propTypes = {
-//     /**
-//      * @property {boolean} primary determines is a primary button (emphasized)
-//      */
-//     // primary: PropTypes.bool,
-//
-//     /**
-//      * @property {string} text label to be displayed within the button
-//      */
-//     text: PropTypes.string
-// }
-//
-// DataSet.defaultProps = {
-//     title: 'DataSet Title!'
-// }
-//
-// // document.addEventListener('DOMContentLoaded', () => {
-// //     ReactDOM.render(
-// //         <DataSet title="DataSetTest" />,
-// //         document.body.appendChild(document.createElement('div')),
-// //     )
-// // })
-//
-//
-//
-//
+
 export default DataSet;

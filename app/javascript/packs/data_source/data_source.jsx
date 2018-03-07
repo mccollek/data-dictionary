@@ -10,7 +10,27 @@ import DataSet from "../data_set/data_set";
  * @example
  * <Dataset title="Budget Numbers" />
  */
-class DictionaryWorkspace extends React.Component{
+
+
+function DataSourceList(props) {
+    // console.log(props.sources.value.data_sources)
+    const DataSources = props.sources.value.data_sources[0];
+    const DataSourceItems = DataSources.map((data_source) =>
+        <div className="DataSource" key={data_source.id}>
+            <div className="DataSourceTitle">
+                {data_source.name}
+            </div>
+            <div className="DataSetArea">
+                <DataSet value={data_source.data_sets}/>
+            </div>
+        </div>
+    );
+    return(
+        <div>{DataSourceItems}</div>
+    )
+}
+
+class DataSource extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -18,22 +38,14 @@ class DictionaryWorkspace extends React.Component{
         };
     }
 
+
+
     render() {
         return (
-            <div className={style.DataSource}>
-                <div className={style.DataSourceTitle}>
-                    {this.props.value.title}
-                </div>
-                This is the DataSource
-                <div className={style.DataSetArea}>
-                    <DataSet value={this.state}/>
-                </div>
-            </div>
+            <DataSourceList sources={this.props} />
         );
     }
 }
 
-export default DictionaryWorkspace;
-
-
+export default DataSource;
 
