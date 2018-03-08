@@ -12,44 +12,60 @@ import DataSource from "../data_source/data_source";
  * <Dataset title="Budget Numbers" />
  */
 
-function loadData(url) {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-            console.log(xhttp.responseText);
-        }
-    };
-    xhttp.open("GET", url, true);
-    xhttp.send();
-};
+// function loadData(url) {
+//     var xhttp = new XMLHttpRequest();
+//     xhttp.onreadystatechange = function() {
+//         if (xhttp.readyState == 4 && xhttp.status == 200) {
+//             console.log(xhttp.responseText);
+//         }
+//     };
+//     xhttp.open("GET", url, true);
+//     xhttp.send();
+// };
 
-function getDataSourcesFromApiAsync() {
-    return
-}
+// function getDataSourcesFromApiAsync() {
+//     return
+// }
 class DictionaryWorkspace extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
             error: null,
             isLoaded: false,
-            items: []
+            data_sources: [],
+            data_archetypes: []
         };
 
     }
 
     //https://reactjs.org/docs/faq-ajax.html
     componentDidMount() {
-        fetch("/data_sources.json")
+        fetch("/data_archetypes.json")
             .then((response) => response.json())
             .then(
                 (result) => {
-                    // console.log(result);
                     this.setState({
-                        isLoaded: true,
-                        data_sources: [
-                            result
-                        ]
+                        data_archetypes: result
                     });
+                    fetch("/data_sources.json")
+                        .then((response) => response.json())
+                        .then(
+                            (result) => {
+                                // console.log(result);
+                                this.setState({
+                                    isLoaded: true,
+                                    data_sources: [
+                                        result
+                                    ]
+                                });
+                            })
+                        .catch((error) => {
+                            console.error(error);
+                            this.setState({
+                                isLoaded: true,
+                                error: error
+                            });
+                        });
                 })
             .catch((error) => {
                 console.error(error);

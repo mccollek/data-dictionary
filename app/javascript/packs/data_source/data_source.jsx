@@ -14,6 +14,7 @@ import DataSet from "../data_set/data_set";
 
 function DataSourceList(props) {
     // console.log(props.sources.value.data_sources)
+    console.log(props.sources.value.data_sources[0]);
     const DataSources = props.sources.value.data_sources[0];
     const DataSourceItems = DataSources.map((data_source) =>
         <div className="DataSource" key={data_source.id}>
