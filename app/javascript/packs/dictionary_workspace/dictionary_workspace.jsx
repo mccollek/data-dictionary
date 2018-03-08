@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './dictionary_workspace.scss';
 import DataSource from "../data_source/data_source";
+import DataArchetype from "../data_archetype/data_archetype";
 
 
 /**
@@ -11,21 +12,6 @@ import DataSource from "../data_source/data_source";
  * @example
  * <Dataset title="Budget Numbers" />
  */
-
-// function loadData(url) {
-//     var xhttp = new XMLHttpRequest();
-//     xhttp.onreadystatechange = function() {
-//         if (xhttp.readyState == 4 && xhttp.status == 200) {
-//             console.log(xhttp.responseText);
-//         }
-//     };
-//     xhttp.open("GET", url, true);
-//     xhttp.send();
-// };
-
-// function getDataSourcesFromApiAsync() {
-//     return
-// }
 class DictionaryWorkspace extends React.Component{
     constructor(props) {
         super(props);
@@ -37,7 +23,6 @@ class DictionaryWorkspace extends React.Component{
         };
 
     }
-
     //https://reactjs.org/docs/faq-ajax.html
     componentDidMount() {
         fetch("/data_archetypes.json")
@@ -74,7 +59,6 @@ class DictionaryWorkspace extends React.Component{
                     error: error
                 });
             });
-
     }
 
     render() {
@@ -86,6 +70,7 @@ class DictionaryWorkspace extends React.Component{
         } else {
             return (
                 <div className="dictionary-app">
+                    <DataArchetype value={this.state}/>
                     <DataSource value={this.state}/>
                 </div>
             );

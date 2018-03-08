@@ -1,0 +1,14 @@
+.DataArchetype {
+  min-width: 15rem;
+  min-height: 8rem;
+  box-sizing: border-box;
+  border: 2px solid rgba(18,18,17, 0.2);
+  border-radius: .5rem;
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-transition: border .125s ease, background .125s ease;
+  transition: border .125s ease, background .125s ease;
+  margin: .5rem;
+
+}
+

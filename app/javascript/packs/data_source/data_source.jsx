@@ -1,5 +1,4 @@
 import React from 'react';
-import style from './data_source.scss';
 import DataSet from "../data_set/data_set";
 
 
@@ -14,7 +13,7 @@ import DataSet from "../data_set/data_set";
 
 function DataSourceList(props) {
     // console.log(props.sources.value.data_sources)
-    console.log(props.sources.value.data_sources[0]);
+    // console.log(props.sources);
     const DataSources = props.sources.value.data_sources[0];
     const DataSourceItems = DataSources.map((data_source) =>
         <div className="DataSource" key={data_source.id}>
