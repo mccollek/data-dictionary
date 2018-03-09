@@ -25,41 +25,27 @@ class DictionaryWorkspace extends React.Component{
     }
     //https://reactjs.org/docs/faq-ajax.html
     componentDidMount() {
-        fetch("/data_archetypes.json")
-            .then((response) => response.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        data_archetypes: result
-                    });
-                    fetch("/data_sources.json")
-                        .then((response) => response.json())
-                        .then(
-                            (result) => {
-                                // console.log(result);
-                                this.setState({
-                                    isLoaded: true,
-                                    data_sources: [
-                                        result
-                                    ]
-                                });
-                            })
-                        .catch((error) => {
-                            console.error(error);
-                            this.setState({
-                                isLoaded: true,
-                                error: error
-                            });
+        fetch("/data_sources.json")
+                .then((response) => response.json())
+                .then(
+                    (result) => {
+                        // console.log(result);
+                        this.setState({
+                            isLoaded: true,
+                            data_sources: [
+                                result
+                            ]
                         });
-                })
-            .catch((error) => {
-                console.error(error);
-                this.setState({
-                    isLoaded: true,
-                    error: error
-                });
-            });
+                    })
+                .catch((error) => {
+                    console.error(error);
+                    this.setState({
+                        isLoaded: true,
+                        error: error
+                    });
+        });
     }
+
 
     render() {
         const { error, isLoaded, items } = this.state;

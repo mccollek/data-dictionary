@@ -11,8 +11,8 @@ import React from 'react';
 
 function DataArchetypeList(props) {
     // console.log("got DataArchetypes")
-    // console.log(props)
-    const DataArchetypes = props.source.value.data_archetypes;
+    console.log(props)
+    const DataArchetypes = props.source.data_archetypes;
     const DataArchetypeItems = DataArchetypes.map((data_archetype) =>
         <div className="DataArchetype" key={data_archetype.id}>
                 {data_archetype.name}
@@ -25,17 +25,39 @@ function DataArchetypeList(props) {
 
 
 class DataArchetype extends React.Component{
- constructor(props) {
-     super(props);
-     // console.log("got DataArchetypes")
-     // console.log(props)
- }
+     constructor(props) {
+         super(props);
+         this.state = {
+             data_archetypes: []
+         }
+         // console.log("got DataArchetypes")
+         // console.log(props)
+     }
+
+    componentDidMount() {
+        fetch("/data_archetypes.json")
+            .then((response) => response.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        data_archetypes: result
+                    });
+                    console.log(result);
+                })
+            .catch((error) => {
+                console.error(error);
+                this.setState({
+                    isLoaded: true,
+                    error: error
+                });
+            });
+    }
 
  render() {
-     if (this.props.value.data_archetypes.length > 0){
+     if (this.state.data_archetypes.length > 0){
          return (
              <div className="DataArchtypeList">
-                 <DataArchetypeList  source={this.props}/>
+                 <DataArchetypeList  source={this.state}/>
              </div>
          )
 
