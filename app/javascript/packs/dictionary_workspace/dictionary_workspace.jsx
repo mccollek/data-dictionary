@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './dictionary_workspace.scss';
 import DataSource from "../data_source/data_source";
-import DataArchetype from "../data_archetype/data_archetype";
+import DataArchetypeList from "../data_archetype_list/data_archetype_list";
 
 
 /**
@@ -12,6 +12,9 @@ import DataArchetype from "../data_archetype/data_archetype";
  * @example
  * <Dataset title="Budget Numbers" />
  */
+
+
+
 class DictionaryWorkspace extends React.Component{
     constructor(props) {
         super(props);
@@ -19,9 +22,10 @@ class DictionaryWorkspace extends React.Component{
             error: null,
             isLoaded: false,
             data_sources: [],
-            data_archetypes: []
+            data_archetypes: [],
+            selected_archetypes: []
         };
-
+        this.AddArchetypeSelection = this.AddArchetypeSelection.bind(this);
     }
     //https://reactjs.org/docs/faq-ajax.html
     componentDidMount() {
@@ -46,6 +50,10 @@ class DictionaryWorkspace extends React.Component{
         });
     }
 
+    AddArchetypeSelection(ArchetypeId){
+        console.log("ArchetypeId: "+ ArchetypeId + " added");
+    }
+
 
     render() {
         const { error, isLoaded, items } = this.state;
@@ -56,8 +64,12 @@ class DictionaryWorkspace extends React.Component{
         } else {
             return (
                 <div className="dictionary-app">
-                    <DataArchetype value={this.state}/>
-                    <DataSource value={this.state}/>
+                    <div className="ArchetypeArea">
+                        <DataArchetypeList value={this.state} addArchetypeSelection={this.AddArchetypeSelection}/>
+                    </div>
+                    <div className="DataDiagramArea">
+                        <DataSource value={this.state} />
+                    </div>
                 </div>
             );
         }

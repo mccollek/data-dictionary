@@ -9,62 +9,58 @@ import React from 'react';
  * <Dataset title="Budget Numbers" />
  */
 
-function DataArchetypeList(props) {
-    // console.log("got DataArchetypes")
-    console.log(props)
-    const DataArchetypes = props.source.data_archetypes;
-    const DataArchetypeItems = DataArchetypes.map((data_archetype) =>
-        <div className="DataArchetype" key={data_archetype.id}>
-                {data_archetype.name}
-        </div>
-    );
-    return(
-        DataArchetypeItems
-    )
-}
+// function ToggleArchetype(archetype_id){
+//     console.log('The link function was called.');
+//     function handleClick(e) {
+//         e.preventDefault();
+//         console.log('The link was clicked.');
+//     }
+// }
+//
+
 
 
 class DataArchetype extends React.Component{
      constructor(props) {
          super(props);
-         this.state = {
-             data_archetypes: []
-         }
-         // console.log("got DataArchetypes")
-         // console.log(props)
+         // console.log("got DataArchetypes");
+         // console.log(props.value);
+         this.ArchetypeData= props.value;
+         this.state = {ArchetypeSelected: false, id: props.value.id};
+         this.handleClick = this.handleClick.bind(this);
      }
 
     componentDidMount() {
-        fetch("/data_archetypes.json")
-            .then((response) => response.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        data_archetypes: result
-                    });
-                    console.log(result);
-                })
-            .catch((error) => {
-                console.error(error);
-                this.setState({
-                    isLoaded: true,
-                    error: error
-                });
-            });
     }
 
- render() {
-     if (this.state.data_archetypes.length > 0){
+    handleClick(e){
+        e.preventDefault();
+        // console.log(this.state.ArchetypeSelected);
+        console.log("The link " + this.state.id +" was clicked.  New Array is: " +  _.uniq(this.props.sources.value.selected_archetypes.push(this.state.id)));
+        this.setState(preState =>({
+            ArchetypeSelected: !preState.ArchetypeSelected,
+            SelectedArchetypes: _.uniq(this.props.sources.value.selected_archetypes.push(this.state.id))
+        }));
+        console.log(this.props.sources.value.selected_archetypes);
+    }
+
+    // componentDidUpdate() {
+    //     console.log("updated selected state: " + this.state.ArchetypeSelected +" for id: " + this.state.id);
+    //     console.log(this.props);
+    //     if(this.state.ArchetypeSelected){
+    //         this.setState(preState=>({
+    //
+    //         }))
+    //     }
+    // }
+
+    render() {
          return (
-             <div className="DataArchtypeList">
-                 <DataArchetypeList  source={this.state}/>
+             <div className="DataArchetype" key={this.ArchetypeData.id}  onClick={this.handleClick}>
+                 {this.ArchetypeData.name}
              </div>
          )
-
-     }else{
-         return null
-     }
- }
+    }
 }
 
 export default DataArchetype;

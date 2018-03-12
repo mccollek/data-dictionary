@@ -9,7 +9,6 @@
   font-weight: 400;
   -webkit-transition: border .125s ease, background .125s ease;
   transition: border .125s ease, background .125s ease;
-
 }
 
 .DataSource .DataSourceTitle {
@@ -18,8 +17,15 @@
   font-weight: 700;
   padding: .5rem;
   width: 100%;
+  display: flex;
 }
 
 .DataSetArea {
+  display: inline-flex;
+}
+
+.DataSourceArea {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }

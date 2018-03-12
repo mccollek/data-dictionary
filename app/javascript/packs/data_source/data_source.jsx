@@ -26,23 +26,22 @@ function DataSourceList(props) {
         </div>
     );
     return(
-        <div>{DataSourceItems}</div>
+        DataSourceItems
     )
 }
 
 class DataSource extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            title: 'test title from workspace',
-        };
     }
 
 
 
     render() {
         return (
-            <DataSourceList sources={this.props} />
+            <div className="DataSourceArea">
+                <DataSourceList sources={this.props} />
+            </div>
         );
     }
 }

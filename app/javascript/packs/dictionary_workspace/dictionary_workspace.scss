@@ -3,5 +3,17 @@
 @import '../data_archetype/data_archetype';
 
 .dictionary-app {
-  display: flex;
+  display: grid;
+  grid-template-rows: 50px 25% auto;
 }
+
+.ArchetypeArea {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.DataDiagramArea {
+  grid-row-start: 3;
+
+}
+
