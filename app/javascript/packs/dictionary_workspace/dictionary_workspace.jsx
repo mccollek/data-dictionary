@@ -25,6 +25,8 @@ class DictionaryWorkspace extends React.Component{
             data_archetypes: [],
             selected_archetypes: []
         };
+        // console.log('workspace selected archetypes:');
+        // console.log(this.state.selected_archetypes);
         this.AddArchetypeSelection = this.AddArchetypeSelection.bind(this);
     }
     //https://reactjs.org/docs/faq-ajax.html
@@ -50,8 +52,12 @@ class DictionaryWorkspace extends React.Component{
         });
     }
 
-    AddArchetypeSelection(ArchetypeId){
-        console.log("ArchetypeId: "+ ArchetypeId + " added");
+    AddArchetypeSelection( e, id){
+        // e.preventDefault();
+        // console.log(this.state.selected_archetypes);
+        this.setState((prevState, props)=> {
+            selected_archetypes: prevState.selected_archetypes.push(id)
+        })
     }
 
 
@@ -65,7 +71,7 @@ class DictionaryWorkspace extends React.Component{
             return (
                 <div className="dictionary-app">
                     <div className="ArchetypeArea">
-                        <DataArchetypeList value={this.state} addArchetypeSelection={this.AddArchetypeSelection}/>
+                        <DataArchetypeList value={this.state} AddArchetypeSelection={this.AddArchetypeSelection}/>
                     </div>
                     <div className="DataDiagramArea">
                         <DataSource value={this.state} />

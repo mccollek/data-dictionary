@@ -38,8 +38,8 @@ class DataArchetypeList extends React.Component{
          this.state = {
              data_archetypes: []
          }
-         console.log("got DataArchetypeList")
-         console.log(props)
+         // console.log("got DataArchetypeList")
+         // console.log(props)
      }
 
     componentDidMount() {
@@ -50,7 +50,7 @@ class DataArchetypeList extends React.Component{
                     this.setState({
                         data_archetypes: result
                     });
-                    console.log(result);
+                    // console.log(result);
                 })
             .catch((error) => {
                 console.error(error);
@@ -69,7 +69,7 @@ class DataArchetypeList extends React.Component{
                  {
                      this.state.data_archetypes.map(function(data_archetype){
                          return(
-                             <DataArchetype sources={objProps} value={data_archetype} key={data_archetype.id} />
+                             <DataArchetype sources={objProps} AddArchetypeSelection={objProps.AddArchetypeSelection} value={data_archetype} key={data_archetype.id}/>
                          )
                      })
                  }
