@@ -38,15 +38,15 @@ function DataSetList(props) {
     const SelectedArchetypes = props.source.value.selected_archetypes;
     console.log(SelectedArchetypes);
     const DataSets = props.source.value.data_sets;
-    const DataSetItems = DataSets.map((data_set) =>
-        <div className={DataSetClass(data_set.production) + " " + ArchetypeRelated(data_set.data_archetypes, SelectedArchetypes)} key={data_set.id}>
+    const DataSetItems = DataSets.map((dataSet) =>
+        <div className={DataSetClass(dataSet.production) + " " + ArchetypeRelated(dataSet.data_archetypes, SelectedArchetypes)} key={dataSet.id}>
             <div className="DataSetTitle">
-                {data_set.name}
+                {dataSet.name}
             </div>
             <div className="DataSetDetails">
                 <ul>
                     <li>
-                        {data_set.data_starts} - {data_set.data_ends}
+                        {dataSet.data_starts} - {dataSet.data_ends}
                     </li>
                 </ul>
             </div>
