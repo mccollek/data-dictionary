@@ -35,9 +35,9 @@ function ArchetypeRelated(dataSetArchetypeIds, selectedArchetypeIDs){
 }
 
 function DataSetList(props) {
-    const SelectedArchetypes = props.source.value.selected_archetypes;
+    const SelectedArchetypes = props.source.value.selectedArchetypes;
     console.log(SelectedArchetypes);
-    const DataSets = props.source.value.data_sets;
+    const DataSets = props.source.value.dataSets;
     const DataSetItems = DataSets.map((dataSet) =>
         <div className={DataSetClass(dataSet.production) + " " + ArchetypeRelated(dataSet.data_archetypes, SelectedArchetypes)} key={dataSet.id}>
             <div className="DataSetTitle">
@@ -67,7 +67,7 @@ class DataSet extends React.Component{
      console.log("dataset props:");
      console.log(this.props);
 
-     if (this.props.value.data_sets.length > 0){
+     if (this.props.value.dataSets.length > 0){
          return (
              <DataSetList source={this.props}/>
          )

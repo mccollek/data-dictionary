@@ -21,12 +21,12 @@ class DictionaryWorkspace extends React.Component{
         this.state = {
             error: null,
             isLoaded: false,
-            data_sources: [],
-            data_archetypes: [],
-            selected_archetypes: []
+            dataSources: [],
+            dataArchetypes: [],
+            selectedArchetypes: []
         };
         // console.log('workspace selected archetypes:');
-        // console.log(this.state.selected_archetypes);
+        // console.log(this.state.selectedArchetypes);
         this.AddArchetypeSelection = this.AddArchetypeSelection.bind(this);
     }
     //https://reactjs.org/docs/faq-ajax.html
@@ -38,7 +38,7 @@ class DictionaryWorkspace extends React.Component{
                         // console.log(result);
                         this.setState({
                             isLoaded: true,
-                            data_sources: [
+                            dataSources: [
                                 result
                             ]
                         });
@@ -55,11 +55,11 @@ class DictionaryWorkspace extends React.Component{
     AddArchetypeSelection(id){
         console.log(id);
         // e.preventDefault();
-        // console.log(this.state.selected_archetypes);
-        var newArray= this.state.selected_archetypes.indexOf(id) > -1
-            ? this.state.selected_archetypes.filter(saId => saId !== id)
-            : [...this.state.selected_archetypes, id]
-        this.setState({selected_archetypes: newArray })
+        // console.log(this.state.selectedArchetypes);
+        var newArray= this.state.selectedArchetypes.indexOf(id) > -1
+            ? this.state.selectedArchetypes.filter(saId => saId !== id)
+            : [...this.state.selectedArchetypes, id]
+        this.setState({selectedArchetypes: newArray })
     }
 
 
@@ -76,7 +76,7 @@ class DictionaryWorkspace extends React.Component{
                         <DataArchetypeList
                             value={this.state}
                             AddArchetypeSelection={this.AddArchetypeSelection}
-                            selectedArchetypes={this.state.selected_archetypes}
+                            selectedArchetypes={this.state.selectedArchetypes}
                         />
                     </div>
                     <div className="DataDiagramArea">

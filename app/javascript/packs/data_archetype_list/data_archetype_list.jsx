@@ -64,7 +64,6 @@ class DataArchetypeList extends React.Component{
 
  render() {
      var objProps = this.props;
-     // #TODO: make methods camelcase
      var {AddArchetypeSelection, selectedArchetypes}=this.props
      if (this.state.dataArchetypes.length > 0){
          return (

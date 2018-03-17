@@ -10,9 +10,9 @@ import DataSet from "../data_set/data_set";
  * <Dataset title="Budget Numbers" />
  */
 
-function BackgroundStyle(source_id, selected_archetypes){
+function BackgroundStyle(source_id, selectedArchetypes){
     console.log("backgroundstyle touched")
-    if(selected_archetypes.indexOf(source_id)==-1){
+    if(selectedArchetypes.indexOf(source_id)===-1){
         return {
             position: "fixed",
             display: "none",
@@ -33,16 +33,16 @@ function BackgroundStyle(source_id, selected_archetypes){
 
 function DataSourceList(props) {
     console.log("DataSourceList")
-    // console.log(props.sources.value.data_sources)
+    console.log(props.sources.value.dataSources[0])
     console.log(props.sources);
-    var DataSources = props.sources.value.data_sources[0];
-    var DataSourceItems = DataSources.map((data_source) =>
-        <div className="DataSource" key={data_source.id}>
+    var DataSources = props.sources.value.dataSources[0];
+    var DataSourceItems = DataSources.map((dataSource) =>
+        <div className="DataSource" key={dataSource.id}>
             <div className="DataSourceTitle">
-                {data_source.name}
+                {dataSource.name}
             </div>
             <div className="DataSetArea">
-                <DataSet sources={props} style={BackgroundStyle(data_source.id, props.sources.value.selected_archetypes)} value={{data_sets: data_source.data_sets, selected_archetypes: props.sources.value.selected_archetypes}}/>
+                <DataSet sources={props} style={BackgroundStyle(dataSource.id, props.sources.value.selectedArchetypes)} value={{dataSets: dataSource.data_sets, selectedArchetypes: props.sources.value.selectedArchetypes}}/>
             </div>
         </div>
     );
