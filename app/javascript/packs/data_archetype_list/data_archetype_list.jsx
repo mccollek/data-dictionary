@@ -36,7 +36,7 @@ class DataArchetypeList extends React.Component{
      constructor(props) {
          super(props);
          this.state = {
-             data_archetypes: []
+             dataArchetypes: []
          }
          // console.log("got DataArchetypeList")
          // console.log(props)
@@ -49,7 +49,7 @@ class DataArchetypeList extends React.Component{
             .then(
                 (result) => {
                     this.setState({
-                        data_archetypes: result
+                        dataArchetypes: result
                     });
                     // console.log(result);
                 })
@@ -66,19 +66,19 @@ class DataArchetypeList extends React.Component{
      var objProps = this.props;
      // #TODO: make methods camelcase
      var {AddArchetypeSelection, selectedArchetypes}=this.props
-     if (this.state.data_archetypes.length > 0){
+     if (this.state.dataArchetypes.length > 0){
          return (
              <div className="DataArchtypeList">
                  {
-                     this.state.data_archetypes.map(function(data_archetype){
+                     this.state.dataArchetypes.map(function(dataArchetype){
                          return(
                              <DataArchetype
                                  sources={objProps}
-                                 id={data_archetype.id}
+                                 id={dataArchetype.id}
                                  AddArchetypeSelection={AddArchetypeSelection}
-                                 value={data_archetype}
-                                 key={data_archetype.id}
-                                 isSelected={selectedArchetypes.indexOf(data_archetype.id)>-1}
+                                 value={dataArchetype}
+                                 key={dataArchetype.id}
+                                 isSelected={selectedArchetypes.indexOf(dataArchetype.id)>-1}
                              />
                          )
                      })
