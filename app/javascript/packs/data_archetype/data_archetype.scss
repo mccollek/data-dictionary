@@ -16,3 +16,7 @@
 .DataArchtypeList {
   display: flex;
 }
+
+.DataArchetype.selected {
+  background: blue;
+}

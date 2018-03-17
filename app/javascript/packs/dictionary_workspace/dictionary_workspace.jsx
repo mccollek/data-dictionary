@@ -52,12 +52,14 @@ class DictionaryWorkspace extends React.Component{
         });
     }
 
-    AddArchetypeSelection( e, id){
+    AddArchetypeSelection(id){
+        console.log(id);
         // e.preventDefault();
         // console.log(this.state.selected_archetypes);
-        this.setState((prevState, props)=> {
-            selected_archetypes: prevState.selected_archetypes.push(id)
-        })
+        var newArray= this.state.selected_archetypes.indexOf(id) > -1
+            ? this.state.selected_archetypes.filter(saId => saId !== id)
+            : [...this.state.selected_archetypes, id]
+        this.setState({selected_archetypes: newArray })
     }
 
 
@@ -71,7 +73,11 @@ class DictionaryWorkspace extends React.Component{
             return (
                 <div className="dictionary-app">
                     <div className="ArchetypeArea">
-                        <DataArchetypeList value={this.state} AddArchetypeSelection={this.AddArchetypeSelection}/>
+                        <DataArchetypeList
+                            value={this.state}
+                            AddArchetypeSelection={this.AddArchetypeSelection}
+                            selectedArchetypes={this.state.selected_archetypes}
+                        />
                     </div>
                     <div className="DataDiagramArea">
                         <DataSource value={this.state} />

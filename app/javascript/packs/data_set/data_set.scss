@@ -24,3 +24,20 @@
 .ProductionDataSet {
   border: 3px solid rgba(84, 197, 84, 0.82);
 }
+
+
+.ArchetypeNotSelected{
+  position: relative;
+}
+
+.ArchetypeNotSelected:after {
+  content: " ";
+  z-index: 10;
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}

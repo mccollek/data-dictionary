@@ -19,15 +19,15 @@ function DataSetClass(production){
 
 }
 
-function ArchetypeRelated(data_set_id, archetypeIDs){
-    console.log("archetype related function archetypeIDs")
-    console.log(archetypeIDs)
-    console.log("data_set_id is " + data_set_id.toString())
-    if(archetypeIDs.length > 0){
-        if(archetypeIDs.includes(data_set_id)){
-            return "ArcheTypeSelected"
-        }else{
+function ArchetypeRelated(dataSetArchetypeIds, selectedArchetypeIDs){
+    console.log("archetype related function selectedArchetypeIDs")
+    console.log(selectedArchetypeIDs)
+    console.log(dataSetArchetypeIds)
+    if(selectedArchetypeIDs.length > 0){
+        if(selectedArchetypeIDs.some(selectedId=> dataSetArchetypeIds.indexOf(selectedId)>-1)){
             return ""
+        }else{
+            return "ArchetypeNotSelected"
         }
     }else{
         return ""
@@ -39,7 +39,7 @@ function DataSetList(props) {
     console.log(SelectedArchetypes);
     const DataSets = props.source.value.data_sets;
     const DataSetItems = DataSets.map((data_set) =>
-        <div className={DataSetClass(data_set.production) + " " + ArchetypeRelated(data_set.id, SelectedArchetypes)} key={data_set.id}>
+        <div className={DataSetClass(data_set.production) + " " + ArchetypeRelated(data_set.data_archetypes, SelectedArchetypes)} key={data_set.id}>
             <div className="DataSetTitle">
                 {data_set.name}
             </div>

@@ -14,7 +14,7 @@ class DataArchetype extends React.Component{
          // console.log("got DataArchetypes");
          // console.log(props);
          // this.ArchetypeData= props.value;
-         this.state = {ArchetypeSelected: false, id: props.value.id};
+         // this.state = {ArchetypeSelected: false, id: props.value.id};
          // this.handleClick = this.handleClick.bind(this);
          // this.AddArchetypeSelection = this.AddArchetypeSelection.bind(this);
      }
@@ -36,7 +36,10 @@ class DataArchetype extends React.Component{
 
     render() {
          return (
-             <div className="DataArchetype" key={this.state.id}  onClick={(e)=>this.props.AddArchetypeSelection(e, this.state.id)}>
+             <div
+                 className={`DataArchetype ${this.props.isSelected ? 'selected' : ''}`}
+                 key={this.props.id}
+                 onClick={()=>this.props.AddArchetypeSelection(this.props.id)}>
                  {this.props.value.name}
              </div>
          )

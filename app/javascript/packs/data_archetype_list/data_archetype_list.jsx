@@ -31,7 +31,7 @@ import DataArchetype from "../data_archetype/data_archetype";
 // }
 
 
-
+//TODO: make stateless component
 class DataArchetypeList extends React.Component{
      constructor(props) {
          super(props);
@@ -42,6 +42,7 @@ class DataArchetypeList extends React.Component{
          // console.log(props)
      }
 
+    // TODO: move up to data dictionary
     componentDidMount() {
         fetch("/data_archetypes.json")
             .then((response) => response.json())
@@ -63,13 +64,22 @@ class DataArchetypeList extends React.Component{
 
  render() {
      var objProps = this.props;
+     // #TODO: make methods camelcase
+     var {AddArchetypeSelection, selectedArchetypes}=this.props
      if (this.state.data_archetypes.length > 0){
          return (
              <div className="DataArchtypeList">
                  {
                      this.state.data_archetypes.map(function(data_archetype){
                          return(
-                             <DataArchetype sources={objProps} AddArchetypeSelection={objProps.AddArchetypeSelection} value={data_archetype} key={data_archetype.id}/>
+                             <DataArchetype
+                                 sources={objProps}
+                                 id={data_archetype.id}
+                                 AddArchetypeSelection={AddArchetypeSelection}
+                                 value={data_archetype}
+                                 key={data_archetype.id}
+                                 isSelected={selectedArchetypes.indexOf(data_archetype.id)>-1}
+                             />
                          )
                      })
                  }
