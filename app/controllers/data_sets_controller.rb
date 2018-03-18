@@ -4,7 +4,7 @@ class DataSetsController < ApplicationController
   # GET /data_sets
   # GET /data_sets.json
   def index
-    @data_sets = DataSet.all
+    @data_sets = DataSet.order(:name).all
   end
 
   # GET /data_sets/1

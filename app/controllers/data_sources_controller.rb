@@ -4,7 +4,7 @@ class DataSourcesController < ApplicationController
   # GET /data_sources
   # GET /data_sources.json
   def index
-    @data_sources = DataSource.includes(:data_sets).includes(data_sets: :data_set_archetypes).all
+    @data_sources = DataSource.includes(:data_sets).includes(data_sets: :data_set_archetypes).order(:name).all
   end
 
   # GET /data_sources/1
