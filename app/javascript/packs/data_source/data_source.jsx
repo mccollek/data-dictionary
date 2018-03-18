@@ -10,24 +10,27 @@ import DataSet from "../data_set/data_set";
  * <Dataset title="Budget Numbers" />
  */
 
-function BackgroundStyle(source_id, selectedArchetypes){
-    console.log("backgroundstyle touched")
-    if(selectedArchetypes.indexOf(source_id)===-1){
-        return {
-            position: "fixed",
-            display: "none",
-            width: "100%",
-            height: "100%",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: "rgba(0,0,0,0.5)",
-            zIndex: 2,
-            cursor: "pointer"
+function dataSourceArchetypeIds(dataSets){
+    console.log(dataSets);
+    var dataArchetypeIds = [];
+    dataSets.map((dataSet) => {dataArchetypeIds.push(...dataSet.data_archetypes.map((dataArchetype) => dataArchetype.id))});
+    console.log("dataSourceArchetypeIds");
+    console.log(dataArchetypeIds);
+    return dataArchetypeIds
+}
+
+
+function BackgroundStyle(dataSets, selectedArchetypeIDs){
+    console.log("backgroundstyle touched");
+    console.log(dataSourceArchetypeIds(dataSets));
+    if(selectedArchetypeIDs.length > 0){
+        if(selectedArchetypeIDs.some(selectedId=> dataSourceArchetypeIds(dataSets).indexOf(selectedId)>-1)){
+            return "";
+        }else {
+            return " ArchetypeNotSelected"
         }
     }else{
-            return "";
+        return ""
     }
 }
 
@@ -37,12 +40,12 @@ function DataSourceList(props) {
     console.log(props.sources);
     var DataSources = props.sources.value.dataSources[0];
     var DataSourceItems = DataSources.map((dataSource) =>
-        <div className="DataSource" key={dataSource.id}>
+        <div className={"DataSource" + BackgroundStyle(dataSource.data_sets, props.sources.value.selectedArchetypes)} key={dataSource.id}>
             <div className="DataSourceTitle">
                 {dataSource.name}
             </div>
             <div className="DataSetArea">
-                <DataSet sources={props} style={BackgroundStyle(dataSource.id, props.sources.value.selectedArchetypes)} value={{dataSets: dataSource.data_sets, selectedArchetypes: props.sources.value.selectedArchetypes}}/>
+                <DataSet sources={props}  value={{dataSets: dataSource.data_sets, selectedArchetypes: props.sources.value.selectedArchetypes}}/>
             </div>
         </div>
     );
