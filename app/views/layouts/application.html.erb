@@ -11,14 +11,12 @@
   </head>
 
   <body>
+    <nav class="navbar">
+      <a class="navbar-brand">Data Dictionary</a>
+    </nav>
     <div class="container">
       <%= yield %>
       <hr>
-      <div id="dictionary-app">
-      </div>
-      <%= javascript_pack_tag 'application' %>
-      <%= javascript_pack_tag 'dictionary_workspace/dictionary_workspace' %>
-      <%= stylesheet_pack_tag 'dictionary_workspace/dictionary_workspace' %>
     </div>
 
   </body>
