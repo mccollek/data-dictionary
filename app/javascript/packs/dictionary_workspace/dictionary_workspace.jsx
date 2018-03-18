@@ -53,7 +53,7 @@ class DictionaryWorkspace extends React.Component{
     }
 
     AddArchetypeSelection(id){
-        console.log(id);
+        // console.log(id);
         // e.preventDefault();
         // console.log(this.state.selectedArchetypes);
         var newArray= this.state.selectedArchetypes.indexOf(id) > -1

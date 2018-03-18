@@ -71,8 +71,7 @@ class DataSet extends React.Component{
  }
 
  render() {
-     console.log("dataset props:");
-     console.log(this.props);
+
 
      if (this.props.value.dataSets.length > 0){
          return (
