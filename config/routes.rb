@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'map/index'
+
   resources :data_sets do
     resources :data_elements
   end
