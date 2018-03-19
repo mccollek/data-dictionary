@@ -2,6 +2,8 @@
 @import '../data_set/data_set';
 @import '../data_archetype/data_archetype';
 
+
+
 .dictionary-app {
   display: grid;
   grid-template-rows: 50px 25% auto;
@@ -17,3 +19,6 @@
 
 }
 
+.navbar {
+  //background-color: cadetblue;
+}
