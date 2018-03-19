@@ -15,41 +15,22 @@ import DataArchetype from "../data_archetype/data_archetype";
 class DataArchetypeList extends React.Component{
      constructor(props) {
          super(props);
-         this.state = {
-             dataArchetypes: []
-         }
+         // this.state = {
+         //     dataArchetypes: []
+         // }
          // console.log("got DataArchetypeList")
          // console.log(props)
      }
 
-    // TODO: move up to data dictionary
-    componentDidMount() {
-        fetch("/data_archetypes.json")
-            .then((response) => response.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        dataArchetypes: result
-                    });
-                    // console.log(result);
-                })
-            .catch((error) => {
-                console.error(error);
-                this.setState({
-                    isLoaded: true,
-                    error: error
-                });
-            });
-    }
 
  render() {
      var objProps = this.props;
      var {AddArchetypeSelection, selectedArchetypes}=this.props
-     if (this.state.dataArchetypes.length > 0){
+     if (this.props.value.dataArchetypes.length > 0){
          return (
              <div className="DataArchtypeList">
                  {
-                     this.state.dataArchetypes.map(function(dataArchetype){
+                     this.props.value.dataArchetypes.map(function(dataArchetype){
                          return(
                              <DataArchetype
                                  sources={objProps}

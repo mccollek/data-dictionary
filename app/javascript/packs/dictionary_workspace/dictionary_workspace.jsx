@@ -32,24 +32,40 @@ class DictionaryWorkspace extends React.Component{
     //https://reactjs.org/docs/faq-ajax.html
     componentDidMount() {
         fetch("/data_sources.json")
-                .then((response) => response.json())
-                .then(
-                    (result) => {
-                        // console.log(result);
-                        this.setState({
-                            isLoaded: true,
-                            dataSources: [
-                                result
-                            ]
-                        });
-                    })
-                .catch((error) => {
-                    console.error(error);
+            .then((response) => response.json())
+            .then(
+                (result) => {
+                    // console.log(result);
                     this.setState({
                         isLoaded: true,
-                        error: error
+                        dataSources: [
+                            result
+                        ]
                     });
-        });
+                })
+            .catch((error) => {
+                console.error(error);
+                this.setState({
+                    isLoaded: true,
+                    error: error
+                });
+            });
+        fetch("/data_archetypes.json")
+            .then((response) => response.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        dataArchetypes: result
+                    });
+                    // console.log(result);
+                })
+            .catch((error) => {
+                console.error(error);
+                this.setState({
+                    isLoaded: true,
+                    error: error
+                });
+            });
     }
 
     AddArchetypeSelection(id){
