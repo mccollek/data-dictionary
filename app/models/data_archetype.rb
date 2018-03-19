@@ -5,8 +5,10 @@ class DataArchetype < ApplicationRecord
 
 # private
   def add_default_color
+    Rails.logger.info('touched add_default_color for id #{id}')
+    # byebug
     if color_swatch.nil?
-      cp = ColorPicker.new(instance: id)
+      cp = ColorPicker.new(instance: (DataArchetype.all.count +1))
       update_attribute(:color_swatch, cp.color_swatch)
     end
   end
