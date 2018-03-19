@@ -11,6 +11,7 @@ import React from 'react';
 class DataArchetype extends React.Component{
      constructor(props) {
          super(props);
+         this.state={backgroundColor: '#5f7fab'}
          // console.log("got DataArchetypes");
          // console.log(props);
          // this.ArchetypeData= props.value;
@@ -22,24 +23,25 @@ class DataArchetype extends React.Component{
     componentDidMount() {
     }
 
-    // handleClick(e){
-    //     e.preventDefault();
-    //     console.log("The link " + this.state.id +" was clicked.  New Array is: " +  _.uniq(this.props.sources.value.selected_archetypes.push(this.state.id)));
-    //     this.setState(preState =>({
-    //         ArchetypeSelected: !preState.ArchetypeSelected,
-    //         SelectedArchetypes: _.uniq(this.props.sources.value.selected_archetypes.push(this.state.id))
-    //     }));
-    //     // AddArchetypeSelection(this.state.id);
-    //     // console.log(this.props.sources.value.selected_archetypes);
-    //
-    // }
+    clickMe(id){
+        var newColor = (this.state.backgroundColor=="#5f7fab"
+            ? this.props.value.color_swatch_css
+            : '#5f7fab');
+        this.setState({backgroundColor: newColor});
+        this.props.AddArchetypeSelection(id);
+    }
+
 
     render() {
          return (
              <div
-                 className={`DataArchetype ${this.props.isSelected ? 'selected' : ''}`}
+                 className={`DataArchetype`}
+                 // className={`DataArchetype ${this.props.isSelected ? 'selected' : ''}`}
                  key={this.props.id}
-                 onClick={()=>this.props.AddArchetypeSelection(this.props.id)}>
+                 onClick={()=>this.clickMe(this.props.id)}
+                 style={{backgroundColor: this.state.backgroundColor}}
+
+             >
                  {this.props.value.name}
              </div>
          )

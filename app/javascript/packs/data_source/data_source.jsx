@@ -19,6 +19,23 @@ function dataSourceArchetypeIds(dataSets){
     return dataArchetypeIds
 }
 
+function colorRings(selectedArchetypeIDs, dataSets){
+    var boxShadowValue="";
+    var matches = 1;
+    dataSourceArchetypeIds(dataSets).forEach(function(dataSetArchId){
+      if (selectedArchetypeIDs.indexOf(dataSetArchId) > -1){
+
+          if(matches >1){boxShadowValue += ","};
+          boxShadowValue += "0 0 0 " + String(matches*6)+ "px #666";
+          matches += 1;
+      }
+    })
+    return {
+        boxShadow: boxShadowValue,
+        margin: String((matches+1)*6)+"px"
+    };
+}
+
 
 function BackgroundStyle(dataSource, selectedArchetypeIDs){
     // console.log("backgroundstyle touched for dataSource " + dataSource.name);
@@ -27,11 +44,12 @@ function BackgroundStyle(dataSource, selectedArchetypeIDs){
     // console.log(dataSets);
     // console.log("DataSourceArchetypes");
     // console.log(dataSourceArchetypeIds(dataSets));
-    // console.log("SelectedArcehtypes");
-    // console.log(selectedArchetypeIDs)
+    console.log("SelectedArcehtypes");
+    console.log(selectedArchetypeIDs)
     if(selectedArchetypeIDs.length > 0){
         if(selectedArchetypeIDs.some(selectedId=> dataSourceArchetypeIds(dataSets).indexOf(selectedId)>-1)){
             return "";
+
         }else {
             return " ArchetypeNotSelected"
         }
@@ -46,7 +64,11 @@ function DataSourceList(props) {
     // console.log(props.sources);
     var DataSources = props.sources.value.dataSources[0];
     var DataSourceItems = DataSources.map((dataSource) =>
-        <div className={"DataSource" + BackgroundStyle(dataSource, props.sources.value.selectedArchetypes)} key={dataSource.id}>
+        <div
+            className={"DataSource" + BackgroundStyle(dataSource, props.sources.value.selectedArchetypes)}
+            key={dataSource.id}
+            style={colorRings(props.sources.value.selectedArchetypes,dataSource.data_sets)}
+        >
             <div className="DataSourceTitle">
                 {dataSource.name}
             </div>

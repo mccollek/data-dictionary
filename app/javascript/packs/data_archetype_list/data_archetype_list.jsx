@@ -10,26 +10,6 @@ import DataArchetype from "../data_archetype/data_archetype";
  * <Dataset title="Budget Numbers" />
  */
 
-// function ToggleArchetype(archetype_id){
-//     console.log('The link function was called.');
-//     function handleClick(e) {
-//         e.preventDefault();
-//         console.log('The link was clicked.');
-//     }
-// }
-
-// function DataArchetypeItems(props) {
-//     console.log("got DataArchetype Items");
-//     console.log(props);
-//     const DataArchetypes = props.source;
-//     const DataArchetypeItems = DataArchetypes.map((data_archetype) =>
-//         <DataArchetype value={data_archetype} key={data_archetype.id} addArchetypeSelection={props.AddArchetypeSelection}/>
-//     );
-//     return(
-//         DataArchetypeItems
-//     )
-// }
-
 
 //TODO: make stateless component
 class DataArchetypeList extends React.Component{
@@ -77,7 +57,7 @@ class DataArchetypeList extends React.Component{
                                  AddArchetypeSelection={AddArchetypeSelection}
                                  value={dataArchetype}
                                  key={dataArchetype.id}
-                                 isSelected={selectedArchetypes.indexOf(dataArchetype.id)>-1}
+                                 // isSelected={selectedArchetypes.indexOf(dataArchetype.id)>-1}
                              />
                          )
                      })

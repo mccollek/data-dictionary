@@ -20,9 +20,6 @@ function DataSetClass(production){
 }
 
 function ArchetypeRelated(dataSetArchetypeIds, selectedArchetypeIDs){
-    // console.log("archetype related function selectedArchetypeIDs")
-    // console.log(selectedArchetypeIDs)
-    // console.log(dataSetArchetypeIds)
     if(selectedArchetypeIDs.length > 0){
         if(selectedArchetypeIDs.some(selectedId=> dataSetArchetypeIds.indexOf(selectedId)>-1)){
             return ""
