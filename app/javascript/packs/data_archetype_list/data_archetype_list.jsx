@@ -11,15 +11,9 @@ import DataArchetype from "../data_archetype/data_archetype";
  */
 
 
-//TODO: make stateless component
 class DataArchetypeList extends React.Component{
      constructor(props) {
          super(props);
-         // this.state = {
-         //     dataArchetypes: []
-         // }
-         // console.log("got DataArchetypeList")
-         // console.log(props)
      }
 
 
@@ -38,7 +32,6 @@ class DataArchetypeList extends React.Component{
                                  AddArchetypeSelection={AddArchetypeSelection}
                                  value={dataArchetype}
                                  key={dataArchetype.id}
-                                 // isSelected={selectedArchetypes.indexOf(dataArchetype.id)>-1}
                              />
                          )
                      })

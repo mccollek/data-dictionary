@@ -1,4 +1,5 @@
 import React from 'react';
+const defaultBackground = '#666'
 
 
 /**
@@ -11,7 +12,7 @@ import React from 'react';
 class DataArchetype extends React.Component{
      constructor(props) {
          super(props);
-         this.state={backgroundColor: '#5f7fab'}
+         this.state={backgroundColor: defaultBackground}
          // console.log("got DataArchetypes");
          // console.log(props);
          // this.ArchetypeData= props.value;
@@ -24,7 +25,7 @@ class DataArchetype extends React.Component{
     }
 
     clickMe(id){
-        var newColor = (this.state.backgroundColor=="#5f7fab"
+        var newColor = (this.state.backgroundColor==defaultBackground
             ? this.props.value.color_swatch_css
             : '#5f7fab');
         this.setState({backgroundColor: newColor});

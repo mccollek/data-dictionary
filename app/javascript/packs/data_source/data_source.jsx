@@ -1,7 +1,6 @@
 import React from 'react';
 import DataSet from "../data_set/data_set";
 
-
 /**
  * @render react
  * @name DataSet
@@ -11,7 +10,6 @@ import DataSet from "../data_set/data_set";
  */
 
 function dataSourceArchetypeIds(dataSets){
-    // console.log(dataSets);
     var dataArchetypeIds = [];
     dataSets.map((dataSet) => {dataArchetypeIds.push(...dataSet.data_archetypes.map((dataArchetype) => dataArchetype.id))});
     // console.log("dataSourceArchetypeIds");
@@ -19,14 +17,22 @@ function dataSourceArchetypeIds(dataSets){
     return dataArchetypeIds
 }
 
-function colorRings(selectedArchetypeIDs, dataSets){
+function getColorFromArchetype(dataSetArchId, dataArchetypes){
+    var archetype = dataArchetypes.find((dataArchetype) => dataArchetype.id === dataSetArchId)
+    return archetype.color_swatch_css
+}
+
+
+function colorRings(selectedArchetypeIDs, dataSets, dataArchetypes){
     var boxShadowValue="";
     var matches = 1;
     dataSourceArchetypeIds(dataSets).forEach(function(dataSetArchId){
       if (selectedArchetypeIDs.indexOf(dataSetArchId) > -1){
-
+          var archetypeColor = getColorFromArchetype(dataSetArchId, dataArchetypes);
+          console.log(archetypeColor);
+          // archetypeColor = "#666";
           if(matches >1){boxShadowValue += ","};
-          boxShadowValue += "0 0 0 " + String(matches*6)+ "px #666";
+          boxShadowValue += "0 0 0 " + String(matches*6)+ "px " + archetypeColor;
           matches += 1;
       }
     })
@@ -38,14 +44,13 @@ function colorRings(selectedArchetypeIDs, dataSets){
 
 
 function BackgroundStyle(dataSource, selectedArchetypeIDs){
-    // console.log("backgroundstyle touched for dataSource " + dataSource.name);
     var dataSets = dataSource.data_sets;
     // console.log("DataSets");
     // console.log(dataSets);
     // console.log("DataSourceArchetypes");
     // console.log(dataSourceArchetypeIds(dataSets));
-    console.log("SelectedArcehtypes");
-    console.log(selectedArchetypeIDs)
+    // console.log("SelectedArchetypes");
+    // console.log(selectedArchetypeIDs)
     if(selectedArchetypeIDs.length > 0){
         if(selectedArchetypeIDs.some(selectedId=> dataSourceArchetypeIds(dataSets).indexOf(selectedId)>-1)){
             return "";
@@ -63,11 +68,12 @@ function DataSourceList(props) {
     // console.log(props.sources.value.dataSources[0])
     // console.log(props.sources);
     var DataSources = props.sources.value.dataSources[0];
+    var dataArchetypes = props.sources.value.dataArchetypes
     var DataSourceItems = DataSources.map((dataSource) =>
         <div
             className={"DataSource" + BackgroundStyle(dataSource, props.sources.value.selectedArchetypes)}
             key={dataSource.id}
-            style={colorRings(props.sources.value.selectedArchetypes,dataSource.data_sets)}
+            style={colorRings(props.sources.value.selectedArchetypes,dataSource.data_sets, dataArchetypes)}
         >
             <div className="DataSourceTitle">
                 {dataSource.name}
