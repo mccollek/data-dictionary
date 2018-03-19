@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :data_archetype_name %>
+    <%= form.text_field :name, id: :data_archetype_name, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :data_archetype_description %>
+    <%= form.text_area :description, id: :data_archetype_description, class: 'form-control' %>
   </div>
 
   <div class="actions">

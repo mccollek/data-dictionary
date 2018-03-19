@@ -11,39 +11,40 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :data_source_name %>
+    <%= form.text_field :name, id: :data_source_name, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :data_source_description %>
+    <%= form.text_area :description, id: :data_source_description, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :production %>
-    <%= form.check_box :production, id: :data_source_production %>
+  <div class="field checkbox">
+    <label>
+      <%= form.check_box :production, id: :data_source_production, class: 'checkbox' %><b>: Production Database</b>
+    </label>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :refresh_frequency %>
-    <%= form.select :refresh_frequency, DataSource.refresh_frequency_options %>
+    <%= form.select :refresh_frequency, DataSource.refresh_frequency_options, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :reliability %>
-    <%= form.text_field :reliability, id: :data_source_reliability %>
+    <%= form.text_field :reliability, id: :data_source_reliability, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :location %>
-    <%= form.text_area :location, id: :data_source_location %>
+    <%= form.text_area :location, id: :data_source_location, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :notes %>
-    <%= form.text_area :notes, id: :data_source_notes %>
+    <%= form.text_area :notes, id: :data_source_notes, class: 'form-control' %>
   </div>
 
   <div class="actions">
