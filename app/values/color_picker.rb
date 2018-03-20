@@ -8,7 +8,7 @@ class ColorPicker
 
   def color_swatch
     @hex =''
-    generator = ColorGenerator.new saturation: 0.3, lightness: 0.75, seed: @seed
+    generator = ColorGenerator.new saturation: 0.3, lightness: 0.5, seed: @seed
     @instance.times do @hex=generator.create_hex end
     return @hex
   end

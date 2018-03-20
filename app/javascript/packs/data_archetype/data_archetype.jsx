@@ -27,7 +27,7 @@ class DataArchetype extends React.Component{
     clickMe(id){
         var newColor = (this.state.backgroundColor==defaultBackground
             ? this.props.value.color_swatch_css
-            : '#5f7fab');
+            : defaultBackground);
         this.setState({backgroundColor: newColor});
         this.props.AddArchetypeSelection(id);
     }

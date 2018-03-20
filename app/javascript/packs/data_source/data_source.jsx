@@ -32,8 +32,8 @@ function colorRings(selectedArchetypeIDs, dataSets, dataArchetypes){
           console.log(archetypeColor);
           // archetypeColor = "#666";
           if(matches >1){boxShadowValue += ","};
-          boxShadowValue += "0 0 0 " + String(matches*6)+ "px " + archetypeColor;
-          matches += 1;
+          boxShadowValue += "0 0 0 " + String(matches*6)+ "px " + archetypeColor + ",0 0 0 " + String((matches+1)*6)+ "px #fff";
+          matches += 2;
       }
     })
     return {
