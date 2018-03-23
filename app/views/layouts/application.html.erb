@@ -1,3 +1,5 @@
+<% @controller_action = params[:controller] + "-" + params[:action]
+   @open_string = "active" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -24,13 +26,13 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="nav navbar-nav">
-            <li class="active">
+            <li class="nav-item <%=@open_string if @controller_action=='map-index'%>">
               <a  href="/map/index.html">Map</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <%=@open_string if @controller_action=='data_sources-index'%>">
               <a href="/data_sources">Sources</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <%=@open_string if @controller_action=='data_archetypes-index'%>">
               <a href="/data_archetypes">Archetypes</a>
             </li>
           </ul>

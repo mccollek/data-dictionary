@@ -1,5 +1,7 @@
 import React from 'react';
 import DataArchetype from "../data_archetype/data_archetype";
+import FormModal from "../form_modal/form_modal";
+import FormModalButton from "../form_modal_button/form_modal_button";
 
 
 /**
@@ -22,23 +24,30 @@ class DataArchetypeList extends React.Component{
      var {AddArchetypeSelection, selectedArchetypes}=this.props
      if (this.props.value.dataArchetypes.length > 0){
          return (
-             <div className="DataArchtypeList">
-                 {
-                     this.props.value.dataArchetypes.map(function(dataArchetype){
-                         return(
-                             <DataArchetype
-                                 sources={objProps}
-                                 id={dataArchetype.id}
-                                 AddArchetypeSelection={AddArchetypeSelection}
-                                 value={dataArchetype}
-                                 key={dataArchetype.id}
-                             />
-                         )
-                     })
-                 }
+             <div className="DataArchetypeArea">
+                 <FormModal
+                     sources ={objProps}
+                 />
+                 <FormModalButton
+                     sources ={objProps}
+                 />
+                 <div className="DataArchtypeList">
+                     {
+                         this.props.value.dataArchetypes.map(function(dataArchetype){
+                             return(
+                                 <DataArchetype
+                                     sources={objProps}
+                                     id={dataArchetype.id}
+                                     AddArchetypeSelection={AddArchetypeSelection}
+                                     value={dataArchetype}
+                                     key={dataArchetype.id}
+                                 />
+                             )
+                         })
+                     }
+                 </div>
              </div>
          )
-
      }else{
          return null
      }

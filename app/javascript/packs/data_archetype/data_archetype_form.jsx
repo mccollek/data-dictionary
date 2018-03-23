@@ -1,4 +1,5 @@
 import React from 'react';
+import { Form, Text, Radio, TextArea, Checkbox } from 'react-form';
 const defaultBackground = '#666'
 
 
@@ -29,16 +30,14 @@ class DataArchetype extends React.Component{
 
     render() {
          return (
-             <div
-                 className={`DataArchetype`}
-                 // className={`DataArchetype ${this.props.isSelected ? 'selected' : ''}`}
-                 key={this.props.id}
-                 onClick={()=>this.clickMe(this.props.id)}
-                 style={{backgroundColor: this.state.backgroundColor}}
-
-             >
-                 {this.props.value.name}
-             </div>
+             <Form>
+                 { formApi => (
+                     <form onSubmit={formApi.submitForm}>
+                         <Text field="hello" id="hello" />
+                         <button type="submit">Submit</button>
+                     </form>
+                 )}
+             </Form>
          )
     }
 }
