@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactBootstrap from 'react-bootstrap';
+import {Button}from 'react-bootstrap';
 
 /**
  * @render react
@@ -11,17 +11,18 @@ import ReactBootstrap from 'react-bootstrap';
 class FormModalButton extends React.Component{
     constructor(props) {
         super(props);
-        var Button = ReactBootstrap.Button;
+
     }
 
     handleShow() {
+        this.props.formModalHandleShow();
         // this.setState({ modalShow: true });
     }
 
     render() {
         return(
             <div className="FormModalButton">
-                <Button bsStyle="primary" bsSize="large" onClick={this.handleShow}>
+                <Button bsStyle="primary" bsSize="large" onClick={()=>this.handleShow()}>
                     Launch demo modal
                 </Button>
             </div>

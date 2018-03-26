@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import style from './dictionary_workspace.scss';
 import DataSource from "../data_source/data_source";
 import DataArchetypeList from "../data_archetype_list/data_archetype_list";
+import FormModal from "../form_modal/form_modal";
+import FormModalButton from "../form_modal_button/form_modal_button";
+
 
 
 /**
@@ -23,11 +26,14 @@ class DictionaryWorkspace extends React.Component{
             isLoaded: false,
             dataSources: [],
             dataArchetypes: [],
-            selectedArchetypes: []
+            selectedArchetypes: [],
+            formModalShow: false
         };
         // console.log('workspace selected archetypes:');
         // console.log(this.state.selectedArchetypes);
         this.AddArchetypeSelection = this.AddArchetypeSelection.bind(this);
+        this.formModalHandleShow = this.formModalHandleShow.bind(this);
+        this.formModalHandleClose = this.formModalHandleClose.bind(this);
     }
     //https://reactjs.org/docs/faq-ajax.html
     componentDidMount() {
@@ -76,7 +82,21 @@ class DictionaryWorkspace extends React.Component{
             ? this.state.selectedArchetypes.filter(saId => saId !== id)
             : [...this.state.selectedArchetypes, id]
         this.setState({selectedArchetypes: newArray })
+        console.log("I'm Adding Archetypres!!")
+
     }
+
+    formModalHandleShow(){
+        this.setState({ formModalShow: true });
+        console.log("I'm setting form modal to Show!")
+    }
+
+    formModalHandleClose(){
+        this.setState({ formModalShow: false });
+        console.log("I'm setting form modal to False!")
+    }
+
+
 
 
     render() {
@@ -96,6 +116,15 @@ class DictionaryWorkspace extends React.Component{
                         />
                     </div>
                     <div className="DataDiagramArea">
+                        <FormModal
+                            value={this.state}
+                            formModalHandleClose={this.formModalHandleClose}
+
+                        />
+                        <FormModalButton
+                            value={this.state}
+                            formModalHandleShow={this.formModalHandleShow}
+                        />
                         <DataSource value={this.state} />
                     </div>
                 </div>

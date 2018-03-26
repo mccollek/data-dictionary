@@ -1,39 +1,39 @@
 import React from 'react';
-import { Form, Text, Radio, TextArea, Checkbox } from 'react-form';
-
+import { Form,  Text, Radio, TextArea, Checkbox } from 'react-form';
+import {Modal, Button}from 'react-bootstrap';
 
 /**
  * @render react
  * @name Form Modal
  * @description Modal component, form is child
  */
-
-
 class FormModal extends React.Component{
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
+
+    }
+    handleClose() {
+        this.props.formModalHandleClose();
     }
 
 
     render() {
         return(
-            <div className="FormModal">
-                <div className="static-modal" tabindex="-1" role="dialog">
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 className="modal-title">Modal title</h4>
-                            </div>
-                            <div className="modal-body">
-                                Test
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
+            <div className="FormModal" >
+                <div className="static-modal">
+                <Modal show={this.props.value.formModalShow} onHide={()=>this.handleClose()}>
+                    <Modal.Header>
+                        <Button onClick={()=>this.handleClose()}><span aria-hidden="true">&times;</span></Button>
+                        <h4 className="modal-title">Modal title</h4>
+                    </Modal.Header>
+                    <Modal.Body>
+                        Test
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button onClick={()=>this.handleClose()}>Close</Button>
+                        <Button bsStyle="primary">Save changes</Button>
+                    </Modal.Footer>
+                </Modal>
                 </div>
             </div>
 
