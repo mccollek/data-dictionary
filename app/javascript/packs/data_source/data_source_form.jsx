@@ -10,7 +10,7 @@ const defaultBackground = '#666'
  * @example
  * <Dataset title="Budget Numbers" />
  */
-class DataArchetypeForm extends React.Component{
+class DataSourceForm extends React.Component{
      constructor(props) {
          super(props);
          this.state={backgroundColor: defaultBackground}
@@ -31,7 +31,7 @@ class DataArchetypeForm extends React.Component{
     render() {
          return (
              <Form>
-                 <h1>Data Archetype Form</h1>
+                 <h1>Data Source Form</h1>
                  { formApi => (
                      <form onSubmit={formApi.submitForm}>
                          <Text field="hello" id="hello" />
@@ -43,4 +43,4 @@ class DataArchetypeForm extends React.Component{
     }
 }
 
-export default DataArchetypeForm;
+export default DataSourceForm;

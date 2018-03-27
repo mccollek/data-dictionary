@@ -15,7 +15,7 @@ class FormModalButton extends React.Component{
     }
 
     handleShow() {
-        this.props.formModalHandleShow();
+        this.props.formModalHandleShow("dataSourceForm");
         // this.setState({ modalShow: true });
     }
 
