@@ -1,18 +1,9 @@
-.DataArchetype {
-  box-sizing: border-box;
-  border: 2px solid rgba(18,18,17, 0.2);
-  border-radius: 100%;
-  font-size: 14px;
-  font-weight: 400;
-  -webkit-transition: border .125s ease, background .125s ease;
-  transition: border .125s ease, background .125s ease;
-  margin: 1rem;
-  padding: 1rem;
-  color: #efefef;
-  background: #666666;
-}
-
-
 .DataArchtypeList {
   display: flex;
+}
+
+.ArchetypeArea {
+  border-bottom: 4px;
+  border-bottom-color: #2E2F30;
+  margin: .5em;
 }
