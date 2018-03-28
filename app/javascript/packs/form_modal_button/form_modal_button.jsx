@@ -3,8 +3,8 @@ import {Button}from 'react-bootstrap';
 
 /**
  * @render react
- * @name Form Modal
- * @description Modal component, form is child
+ * @name Form Modal Button
+ * @description Button to Lauch Modal component, form is child
  */
 
 
@@ -15,7 +15,7 @@ class FormModalButton extends React.Component{
     }
 
     handleShow() {
-        this.props.formModalHandleShow("dataSourceForm");
+        this.props.formModalHandleShow("DataSourceForm");
         // this.setState({ modalShow: true });
     }
 

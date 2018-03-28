@@ -27,7 +27,8 @@ class DictionaryWorkspace extends React.Component{
             dataSources: [],
             dataArchetypes: [],
             selectedArchetypes: [],
-            formModalShow: false
+            formModalShow: false,
+            formModalClass: 'DataArchetypeForm'
         };
         // console.log('workspace selected archetypes:');
         // console.log(this.state.selectedArchetypes);
@@ -82,18 +83,20 @@ class DictionaryWorkspace extends React.Component{
             ? this.state.selectedArchetypes.filter(saId => saId !== id)
             : [...this.state.selectedArchetypes, id]
         this.setState({selectedArchetypes: newArray })
-        console.log("I'm Adding Archetypres!!")
+        // console.log("I'm Adding Archetypres!!")
 
     }
 
-    formModalHandleShow(){
-        this.setState({ formModalShow: true });
-        console.log("I'm setting form modal to Show!")
+    formModalHandleShow(formClass){
+        this.setState({ formModalShow: true,
+                        formModalClass: formClass
+        });
+        console.log("I'm setting form modal Class to " + formClass)
     }
 
     formModalHandleClose(){
         this.setState({ formModalShow: false });
-        console.log("I'm setting form modal to False!")
+        // console.log("I'm setting form modal to False!")
     }
 
 

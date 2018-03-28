@@ -1,6 +1,8 @@
 import React from 'react';
 import { Form,  Text, Radio, TextArea, Checkbox } from 'react-form';
 import {Modal, Button}from 'react-bootstrap';
+import DataSourceForm from '../data_source/data_source_form';
+import DataArchetypeForm from '../data_archetype/data_archetype_form';
 
 /**
  * @render react
@@ -17,7 +19,14 @@ class FormModal extends React.Component{
     }
 
 
+
     render() {
+        const availableForms={
+            DataSourceForm: DataSourceForm,
+            DataArchetypeForm: DataArchetypeForm
+
+        }
+        const CurrentForm = availableForms[this.props.value.formModalClass];
         return(
             <div className="FormModal" >
                 <div className="static-modal">
@@ -27,7 +36,7 @@ class FormModal extends React.Component{
                         <h4 className="modal-title">Modal title</h4>
                     </Modal.Header>
                     <Modal.Body>
-                        Test
+                        <CurrentForm />
                     </Modal.Body>
                     <Modal.Footer>
                         <Button onClick={()=>this.handleClose()}>Close</Button>
