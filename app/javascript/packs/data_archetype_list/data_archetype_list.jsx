@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import DataArchetype from "../data_archetype/data_archetype";
 
 
@@ -10,6 +11,9 @@ import DataArchetype from "../data_archetype/data_archetype";
  * <Dataset title="Budget Numbers" />
  */
 
+function mapStateToProps(state){
+    return {dataArchetypes: state.dataArchetypes.dataArchetypes}
+}
 
 class DataArchetypeList extends React.Component{
      constructor(props) {
@@ -46,4 +50,4 @@ class DataArchetypeList extends React.Component{
  }
 }
 
-export default DataArchetypeList;
+export default connect(mapStateToProps)(DataArchetypeList);

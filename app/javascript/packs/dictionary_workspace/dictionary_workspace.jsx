@@ -1,6 +1,7 @@
 import React from 'react';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux'
 import reduxLogger from 'redux-logger';
 import rootReducer from '../../reducers/index'
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -36,9 +37,10 @@ function loadData (dispatch) {
                     dataSources: result
                 }
             )
-        .then(
-            store.dispatch({type: 'DATA_SOURCES_LOADED', data: dataSourceData})
-        )
+        .then((result)=> {
+            console.log('dispatching archetypes');
+            store.dispatch({type: 'DATASOURCES_LOADED', data: dataSourceData})
+        })
         .catch((error) => {
             console.error(error);
             this.setState({
@@ -150,9 +152,6 @@ class DictionaryWorkspace extends React.Component{
         this.setState({ formModalShow: true,
                         formModalClass: formClass
         });
-        console.log("I'm setting form modal Class to " + formClass)
-        console.log('store state:')
-        console.log(this.state.store.getState())
     }
 
     formModalHandleClose(){
@@ -171,6 +170,7 @@ class DictionaryWorkspace extends React.Component{
             return <div>Loading...</div>;
         } else {
             return (
+                <Provider store={store}>
                     <div className="dictionary-app">
                         <div className="ArchetypeArea">
                             <DataArchetypeList
@@ -193,6 +193,7 @@ class DictionaryWorkspace extends React.Component{
                             <DataSource value={this.state} />
                         </div>
                     </div>
+                </Provider>
             );
         }
     }
