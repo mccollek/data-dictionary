@@ -10,12 +10,10 @@ const defaultBackground = '#666'
  * @example
  * <Dataset title="Budget Numbers" />
  */
-class DataSourceForm extends React.Component{
+class DataSetForm extends React.Component{
      constructor(props) {
          super(props);
-         this.state= {
-             backgroundColor: defaultBackground,
-             dataSets: []
+         this.state={backgroundColor: defaultBackground
          }
      }
 
@@ -42,7 +40,6 @@ class DataSourceForm extends React.Component{
                          <label htmlFor="production" className="mr2">Live Data?:</label>
                          <Checkbox field="production" id="production"/>
                          </div>
-                         <button type="submit" className="mb-4 btn btn-primary">Submit</button>
                      </form>
                  )}
              </Form>
@@ -50,4 +47,4 @@ class DataSourceForm extends React.Component{
     }
 }
 
-export default DataSourceForm;
+export default DataSetForm;

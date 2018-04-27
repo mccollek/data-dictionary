@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Text, Radio, TextArea, Checkbox } from 'react-form';
+import { connect } from 'react-redux';
 const defaultBackground = '#666'
 
 
@@ -19,21 +20,26 @@ class DataArchetypeForm extends React.Component{
     componentDidMount() {
     }
 
-    clickMe(id){
-        var newColor = (this.state.backgroundColor==defaultBackground
-            ? this.props.value.color_swatch_css
-            : defaultBackground);
-        this.setState({backgroundColor: newColor});
-        this.props.AddArchetypeSelection(id);
-    }
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("Archetype handleSubmit Clicked!");
+        const title = this.getTitle.value;
+        const message =  this.getMessage.value;
+        const data = {
+            id: new Date(),
+            title,
+            message
+        }
 
+    }
 
     render() {
          return (
              <Form>
-                 <h1>Data Archetype Form</h1>
                  { formApi => (
-                     <form onSubmit={formApi.submitForm}>
+                     <form>
+                         <h1>Data Archetype Form 2</h1>
+
                          <Text field="hello" id="hello" />
                          <button type="submit">Submit</button>
                      </form>

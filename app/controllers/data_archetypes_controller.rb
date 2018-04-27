@@ -4,7 +4,7 @@ class DataArchetypesController < ApplicationController
   # GET /data_archetypes
   # GET /data_archetypes.json
   def index
-    @data_archetypes = DataArchetype.all
+    @data_archetypes = DataArchetype.all.order(:name)
   end
 
   # GET /data_archetypes/1
