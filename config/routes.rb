@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'map#index'
   get 'map/index'
 
   resources :data_sets do
