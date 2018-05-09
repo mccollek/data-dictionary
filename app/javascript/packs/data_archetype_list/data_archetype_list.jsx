@@ -12,7 +12,7 @@ import DataArchetype from "../data_archetype/data_archetype";
  */
 
 function mapStateToProps(state){
-    return {dataArchetypes: state.dataArchetypes.dataArchetypes}
+    return {dataArchetypes: state.dataArchetypes[0].dataArchetypes}
 }
 
 class DataArchetypeList extends React.Component{
@@ -24,12 +24,12 @@ class DataArchetypeList extends React.Component{
  render() {
      var objProps = this.props;
      var {AddArchetypeSelection, selectedArchetypes}=this.props
-     if (this.props.value.dataArchetypes.length > 0){
+     if (this.props.dataArchetypes.length > 0){
          return (
              <div className="DataArchetypeArea">
                  <div className="DataArchtypeList">
                      {
-                         this.props.value.dataArchetypes.map(function(dataArchetype){
+                         this.props.dataArchetypes.map(function(dataArchetype){
                              return(
                                  <DataArchetype
                                      sources={objProps}
