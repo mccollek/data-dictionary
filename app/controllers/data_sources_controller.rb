@@ -69,6 +69,18 @@ class DataSourcesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def data_source_params
-      params.require(:data_source).permit(:name, :production, :refresh_frequency, :reliability, :location, :description, :notes)
+      params.require(:data_source).permit(:name,
+                                          :production,
+                                          :refresh_frequency,
+                                          :reliability,
+                                          :location,
+                                          :description,
+                                          :notes,
+                                          data_sets_attributes: [:id,
+                                              :name,
+                                              :data_archetype_ids,
+                                              :production,
+                                              :data_starts,
+                                              :data_ends])
     end
 end

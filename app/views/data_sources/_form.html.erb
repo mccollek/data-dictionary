@@ -38,15 +38,15 @@
   </div>
 
   <div class="field form-group">
-    <%= form.label :location %>
-    <%= form.text_area :location, id: :data_source_location, class: 'form-control' %>
-  </div>
-
-  <div class="field form-group">
     <%= form.label :notes %>
     <%= form.text_area :notes, id: :data_source_notes, class: 'form-control' %>
   </div>
 
+  <%= form.fields_for :data_sets do |builder| %>
+    <fieldset>
+      <%= render 'data_sets/data_set_fields', form: builder%>
+    </fieldset>
+  <% end %>
   <div class="actions">
     <%= form.submit %>
   </div>
