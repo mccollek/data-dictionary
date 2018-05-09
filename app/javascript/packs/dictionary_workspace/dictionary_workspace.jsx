@@ -181,15 +181,15 @@ class DictionaryWorkspace extends React.Component{
                         </div>
 
                         <div className="DataDiagramArea">
-                            <FormModal
-                                value={this.state}
-                                formModalHandleClose={this.formModalHandleClose}
+                            {/*<FormModal*/}
+                                {/*value={this.state}*/}
+                                {/*formModalHandleClose={this.formModalHandleClose}*/}
 
-                            />
-                            <FormModalButton
-                                value={this.state}
-                                formModalHandleShow={this.formModalHandleShow}
-                            />
+                            {/*/>*/}
+                            {/*<FormModalButton*/}
+                                {/*value={this.state}*/}
+                                {/*formModalHandleShow={this.formModalHandleShow}*/}
+                            {/*/>*/}
                             <DataSource value={this.state} />
                         </div>
                     </div>
