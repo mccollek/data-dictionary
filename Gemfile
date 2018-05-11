@@ -35,6 +35,11 @@ gem 'jbuilder', '~> 2.5'
 # set colors for data_archetypes
 gem 'color-generator'
 
+#bootsrap
+# gem 'jquery-rails'
+# gem 'bootstrap', '~> 4.1.1'
+# gem 'bootstrap-select-rails'
+# gem 'bootstrap-select-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

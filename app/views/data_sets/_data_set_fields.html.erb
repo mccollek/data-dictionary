@@ -1,19 +1,26 @@
 <div class="date-flex-row">
   <div class="field form-group field-item">
-  <%= form.label :name %>
-  <%= form.text_field :name, id: :data_set_name, class: 'form-control' %>
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :data_set_name, class: 'form-control' %>
   </div>
-  <div class="field checkbox field-item">
+  <div class="field checkbox field-item check-field">
     <label>
-      <%= form.check_box :production, id: :data_set_production, class: 'checkbox' %><b>: Production Database</b>
+    <%= form.check_box :_destroy, class: 'delete-check' %>
+    <%= form.label :_destroy, "Delete Data Set" %>
     </label>
-  </div></div>
+  </div>
+  <div class="field checkbox field-item check-field">
+    <label>
+      <%= form.check_box :production, id: :data_set_production, class: 'checkbox' %><b>: Live/In Production?</b>
+    </label>
+  </div>
+</div>
 
 <div class="date-flex-row">
   <div class="field form-group">
-  <%= form.label :data_archetype_ids %>
-  <%= form.select :data_archetype_ids, DataArchetype.all.collect {|x| [x.name, x.id]}, {}, multiple: true, class: 'form-control' %>
-</div>
+    <%= form.label :data_archetype_ids %>
+    <%= form.select :data_archetype_ids, DataArchetype.all.collect {|x| [x.name, x.id]}, {}, multiple: true, class: 'selectpicker' %>
+  </div>
 </div>
 
 <div class="date-flex-row">
@@ -26,12 +33,5 @@
     <%= form.label :data_ends %>
     <%= form.date_select :data_ends, {:include_blank => true, :default => nil} %>
   </div>
-</div>
-
-<div class="date-flex-row">
-<div class="field form-group">
-  <%= form.label :data_source_id %>
-  <%= form.collection_select :data_source_id, DataSource.all, :id, :name, class: 'form-control' %>
-</div>
 </div>
 

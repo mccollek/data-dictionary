@@ -81,6 +81,7 @@ class DataSourcesController < ApplicationController
                                               :data_archetype_ids,
                                               :production,
                                               :data_starts,
-                                              :data_ends])
+                                              :data_ends,
+                                              :_destroy])
     end
 end
