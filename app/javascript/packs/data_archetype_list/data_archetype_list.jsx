@@ -11,8 +11,8 @@ import DataArchetype from "../data_archetype/data_archetype";
  * <Dataset title="Budget Numbers" />
  */
 
-function mapStateToProps(state){
-    return {dataArchetypes: state.dataArchetypes[0].dataArchetypes}
+function mapStateToProps(currentState){
+    return {dataArchetypes: currentState.dataArchetypes[0].dataArchetypes}
 }
 
 class DataArchetypeList extends React.Component{
