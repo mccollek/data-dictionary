@@ -76,12 +76,14 @@ class DataSourcesController < ApplicationController
                                           :location,
                                           :description,
                                           :notes,
-                                          data_sets_attributes: [:id,
+                                          data_sets_attributes: [
+                                              :id,
                                               :name,
-                                              :data_archetype_ids,
                                               :production,
                                               :data_starts,
                                               :data_ends,
-                                              :_destroy])
+                                              :_destroy,
+                                              data_archetype_ids:[]
+])
     end
 end
