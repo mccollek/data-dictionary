@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import style from './dictionary_workspace.scss';
 import DataSource from "../data_source/data_source";
 import DataArchetypeList from "../data_archetype_list/data_archetype_list";
+import DictionarySearch from "../dictionary_search/dictionary_search"
 import FormModal from "../form_modal/form_modal";
 import FormModalButton from "../form_modal_button/form_modal_button";
 
@@ -173,6 +174,7 @@ class DictionaryWorkspace extends React.Component{
                 <Provider store={store}>
                     <div className="dictionary-app">
                         <div className="ArchetypeArea">
+                            <DictionarySearch value={this.state}/>
                             <DataArchetypeList
                                 value={this.state}
                                 AddArchetypeSelection={this.AddArchetypeSelection}
