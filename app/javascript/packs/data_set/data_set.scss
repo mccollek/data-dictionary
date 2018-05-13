@@ -1,3 +1,13 @@
+.DataSetList{
+  display: inline-flex;
+  box-sizing: border-box;
+}
+
+.DataSetArea{
+  display: inline-flex;
+  box-sizing: border-box;
+}
+
 .DataSet {
   min-width: 15rem;
   min-height: 8rem;
@@ -9,7 +19,6 @@
   -webkit-transition: border .125s ease, background .125s ease;
   transition: border .125s ease, background .125s ease;
   margin: .5rem;
-
 }
 
 .DataSet .DataSetTitle {

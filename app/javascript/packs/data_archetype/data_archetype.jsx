@@ -13,12 +13,6 @@ class DataArchetype extends React.Component{
      constructor(props) {
          super(props);
          this.state={backgroundColor: defaultBackground}
-         // console.log("got DataArchetypes");
-         // console.log(props);
-         // this.ArchetypeData= props.value;
-         // this.state = {ArchetypeSelected: false, id: props.value.id};
-         // this.handleClick = this.handleClick.bind(this);
-         // this.AddArchetypeSelection = this.AddArchetypeSelection.bind(this);
      }
 
     componentDidMount() {

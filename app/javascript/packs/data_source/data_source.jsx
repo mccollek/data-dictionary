@@ -28,22 +28,21 @@ function colorRings(selectedArchetypeIDs, dataSets, dataArchetypes){
     var matches = 1;
     var returnValue={};
     dataSourceArchetypeIds(dataSets).forEach(function(dataSetArchId){
-        if (selectedArchetypeIDs.indexOf(dataSetArchId) > -1){
-            var archetypeColor = getColorFromArchetype(dataSetArchId, dataArchetypes);
-            if(matches >1){boxShadowValue += ","};
-            boxShadowValue += "0 0 0 " + String(matches*6)+ "px " + archetypeColor + ",0 0 0 " + String((matches+1)*6)+ "px #fff";
-            returnValue= {
-                boxShadow: boxShadowValue,
-                margin: String((matches+1)*6)+"px",
-                order: -1
-            };
-            matches += 2;
-        }else{
-        }
+      if (selectedArchetypeIDs.indexOf(dataSetArchId) > -1){
+          var archetypeColor = getColorFromArchetype(dataSetArchId, dataArchetypes);
+          if(matches >1){boxShadowValue += ","};
+          boxShadowValue += "0 0 0 " + String(matches*6)+ "px " + archetypeColor + ",0 0 0 " + String((matches+1)*6)+ "px #fff";
+          returnValue= {
+              boxShadow: boxShadowValue,
+              margin: String((matches+1)*6)+"px",
+              order: -1
+          };
+          matches += 2;
+      }else{
+      }
     });
     return returnValue;
 }
-
 
 
 function BackgroundStyle(dataSource, selectedArchetypeIDs){
