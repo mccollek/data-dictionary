@@ -4,7 +4,7 @@ const defaultBackground = '#666'
 class DictionarySearch extends React.Component {
     constructor(props) {
         super(props);
-        idsToHighlight: [];
+        this.state = {idsToHighlight: []};
     }
 
     componentDidMount() {
@@ -17,24 +17,25 @@ class DictionarySearch extends React.Component {
             .then(
                 (result) => {
                     console.log(result);
-                    this.setState({
-                        isLoaded: true,
-                        idsToHighLight: [
-                            result
-                        ]
-                    });
+                    this.props.setSearchSelection(result);
+                    // this.setState({
+                    //     isLoaded: true,
+                    //     idsToHighLight: [
+                    //         result
+                    //     ]
+                    // });
                 })
             .catch((error) => {
                 console.error(error);
-                this.setState({
-                    isLoaded: true,
-                    error: error
-                });
+                // this.setState({
+                //     isLoaded: true,
+                //     error: error
+                // });
             });
     }
 
     render() {
-
+        var {SetSearchSelection} = this.props;
         return(
             <div className='DictionarySearch'>
                 <label>Search:</label> <input type="text" onChange={this.handleChange.bind(this)}/>

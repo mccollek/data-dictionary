@@ -81,7 +81,9 @@ function DataSourceList(props) {
                 {dataSource.name}
             </div>
             <div className="DataSetArea">
-                <DataSet sources={props}  value={{dataSets: dataSource.data_sets, selectedArchetypes: props.sources.value.selectedArchetypes}}/>
+                <DataSet sources={props}  value={{dataSets: dataSource.data_sets,
+                    selectedArchetypes: props.sources.value.selectedArchetypes,
+                    matchedData: props.sources.value.matchedData}}/>
             </div>
         </div>
     );

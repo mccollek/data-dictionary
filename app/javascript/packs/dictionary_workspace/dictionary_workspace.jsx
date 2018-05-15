@@ -87,13 +87,15 @@ class DictionaryWorkspace extends React.Component{
             selectedArchetypes: [],
             formModalShow: false,
             formModalClass: 'DataArchetypeForm',
-            store: store
+            store: store,
+            matchedData:[]
         };
         // console.log('workspace selected archetypes:');
         // console.log(this.state.selectedArchetypes);
         this.AddArchetypeSelection = this.AddArchetypeSelection.bind(this);
         this.formModalHandleShow = this.formModalHandleShow.bind(this);
         this.formModalHandleClose = this.formModalHandleClose.bind(this);
+        this.setSearchSelection = this.setSearchSelection.bind(this);
     }
     //https://reactjs.org/docs/faq-ajax.html
     componentDidMount() {
@@ -145,7 +147,16 @@ class DictionaryWorkspace extends React.Component{
             ? this.state.selectedArchetypes.filter(saId => saId !== id)
             : [...this.state.selectedArchetypes, id]
         this.setState({selectedArchetypes: newArray})
-        // console.log("I'm Adding Archetypres!!")
+        // console.log("I'm Adding Archetypes!!")
+
+    }
+
+    setSearchSelection(ids){
+        console.log(ids);
+        // e.preventDefault();
+        // console.log(this.state.selectedArchetypes);
+        this.setState({matchedData: ids})
+        console.log("I'm setting searchselections!")
 
     }
 
@@ -174,7 +185,10 @@ class DictionaryWorkspace extends React.Component{
                 <Provider store={store}>
                     <div className="dictionary-app">
                         <div className="ArchetypeArea">
-                            <DictionarySearch value={this.state}/>
+                            <DictionarySearch value={this.state}
+                                              setSearchSelection ={this.setSearchSelection}
+
+                            />
                             <DataArchetypeList
                                 value={this.state}
                                 AddArchetypeSelection={this.AddArchetypeSelection}
