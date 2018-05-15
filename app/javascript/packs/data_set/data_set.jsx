@@ -54,7 +54,7 @@ function SearchRelatedClass(selectedIds, currentId){
 
 function DataSetList(props) {
     const SelectedArchetypes = props.source.value.selectedArchetypes;
-    console.log(SelectedArchetypes);
+    // console.log(SelectedArchetypes);
     const DataSets = props.source.value.dataSets;
     const DataSetItems = DataSets.map((dataSet) =>
         <div className={DataSetClass(dataSet.production) + " " + ArchetypeRelated(dataArchetypeIds(dataSet.data_archetypes), SelectedArchetypes) + " " + SearchRelatedClass(props.source.value.matchedData, dataSet.id)} key={dataSet.id}>

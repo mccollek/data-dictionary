@@ -16,7 +16,7 @@ class DictionarySearch extends React.Component {
             .then((response) => response.json())
             .then(
                 (result) => {
-                    console.log(result);
+                    // console.log(result);
                     this.props.setSearchSelection(result);
                     // this.setState({
                     //     isLoaded: true,

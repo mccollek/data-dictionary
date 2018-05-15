@@ -152,11 +152,11 @@ class DictionaryWorkspace extends React.Component{
     }
 
     setSearchSelection(ids){
-        console.log(ids);
+        // console.log(ids);
         // e.preventDefault();
         // console.log(this.state.selectedArchetypes);
         this.setState({matchedData: ids})
-        console.log("I'm setting searchselections!")
+        // console.log("I'm setting searchselections!")
 
     }
 
