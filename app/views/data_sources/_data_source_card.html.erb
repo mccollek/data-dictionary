@@ -1,5 +1,6 @@
   <div class="jumbotron">
     <h5 ><%= @data_source.name %></h5>
+    <p><%= @data_source.description%></p>
     <%= link_to 'more...', data_source_path(@data_source.id)%>
   </div>
   <% @data_source.data_sets.each do |data_set| %>

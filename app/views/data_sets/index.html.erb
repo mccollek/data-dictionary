@@ -17,12 +17,11 @@
   <tbody>
     <% @data_sets.each do |data_set| %>
       <tr>
-        <td><%= data_set.name %></td>
+        <td><%= link_to data_set.name, data_set%></td>
         <td><%= data_set.production %></td>
         <td><%= data_set.data_starts %></td>
         <td><%= data_set.data_ends %></td>
         <td><%= data_set.data_source %></td>
-        <td><%= link_to 'Show', data_set %></td>
         <td><%= link_to 'Edit', edit_data_set_path(data_set) %></td>
         <td><%= link_to 'Destroy', data_set, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
