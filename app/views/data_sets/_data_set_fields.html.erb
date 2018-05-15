@@ -18,6 +18,12 @@
 
 <div class="date-flex-row">
   <div class="field form-group">
+    <%= form.label :sensitivity_id %>
+    <%= form.select :sensitivity_id, Sensitivity.all.collect {|x| [x.name, x.id]}, {}, class: 'selectpicker' %>
+  </div>
+</div>
+
+  <div class="field form-group">
     <%= form.label :data_archetype_ids %>
     <%= form.select :data_archetype_ids, DataArchetype.all.collect {|x| [x.name, x.id]}, {}, multiple: true, class: 'selectpicker' %>
   </div>

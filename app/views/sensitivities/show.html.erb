@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sensitivity.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @sensitivity.description %>
+</p>
+
+<%= link_to 'Edit', edit_sensitivity_path(@sensitivity) %> |
+<%= link_to 'Back', sensitivities_path %>

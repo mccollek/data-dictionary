@@ -68,6 +68,6 @@ class DataSetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def data_set_params
-      params.require(:data_set).permit(:name, :production, :data_starts, :data_ends, :data_source_id, data_archetype_ids: [])
+      params.require(:data_set).permit(:name, :production, :data_starts, :data_ends, :data_source_id,:sensitivity_id, data_archetype_ids: [] )
     end
 end

@@ -83,6 +83,7 @@ class DataSourcesController < ApplicationController
                                               :data_starts,
                                               :data_ends,
                                               :_destroy,
+                                              :sensitivity_id,
                                               data_archetype_ids:[]
 ])
     end

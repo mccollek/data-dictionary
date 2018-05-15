@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sensitivities</h1>
+
+<table>
+  <thead class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sensitivities.each do |sensitivity| %>
+      <tr>
+        <td><%= sensitivity.name %></td>
+        <td><%= sensitivity.description %></td>
+        <td><%= link_to 'Show', sensitivity %></td>
+        <td><%= link_to 'Edit', edit_sensitivity_path(sensitivity) %></td>
+        <td><%= link_to 'Destroy', sensitivity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sensitivity', new_sensitivity_path %>

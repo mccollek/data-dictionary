@@ -21,6 +21,12 @@
     <%= form.select :data_archetype_ids, DataArchetype.all.collect {|x| [x.name, x.id]},{},multiple: true, class: 'form-control' %>
   </div>
 
+
+  <div class="field form-group">
+    <%= form.label :sensitivity_id %>
+    <%= form.select :sensitivity_id, Sensitivity.all.collect {|x| [x.name, x.id]},{},class: 'form-control' %>
+  </div>
+
   <div class="field checkbox">
     <label>
       <%= form.check_box :production, id: :data_set_production, class: 'checkbox' %><b>: Production Database</b>
