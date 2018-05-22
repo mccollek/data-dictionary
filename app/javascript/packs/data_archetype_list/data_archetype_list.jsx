@@ -12,7 +12,7 @@ import DataArchetype from "../data_archetype/data_archetype";
  */
 
 function mapStateToProps(currentState){
-    return {dataArchetypes: currentState.dataArchetypes[0].dataArchetypes}
+    return {dataArchetypes: currentState.dataArchetypes.dataArchetypes}
 }
 
 class DataArchetypeList extends React.Component{

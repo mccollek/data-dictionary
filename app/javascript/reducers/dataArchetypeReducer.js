@@ -1,13 +1,14 @@
 import React from 'react'
 import {ARCHETYPE_ADD, ARCHETYPES_LOADED} from "../constants/ActionTypes";
 
-const initialState = {
-    dataArchetypes: [
-    {
-        name: 'test archetype',
-        description: 'test archetype description'
-    }
-]}
+const initialState =         {dataArchetypes: [
+            {
+                name: 'test archetype',
+                description: 'test archetype description'
+            }
+        ]}
+
+
 
 
 export default function dataArchetypes(state = initialState, action) {
@@ -24,10 +25,8 @@ export default function dataArchetypes(state = initialState, action) {
         case 'ARCHETYPES_LOADED':
             console.log("Archetypes Loaded!");
             console.log(action.data)
-            return [
-                ...state,
-                action.data
-            ];
+            const newState = Object.assign({},state, action.data)
+            return newState;
 
         default:
             return state;
