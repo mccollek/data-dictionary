@@ -33,7 +33,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="nav navbar-nav">
         <li class="nav-item nav-link <%= @open_string if @controller_action == 'map-index' %>">
-          <a href="/map/index.html">Map</a>
+          <a href="/map/index.html" data-turbolinks="false">Map</a>
         </li>
         <li class="nav-item nav-link <%= @open_string if @controller_action == 'data_sources-index' %>">
           <a href="/data_sources">Sources</a>
@@ -45,9 +45,9 @@
     </div>
   </nav>
   <div class="container-fluid">
-  <%= yield %>
-  <hr>
-</div>
+    <%= yield %>
+    <hr>
+  </div>
 
 </body>
 </html>
