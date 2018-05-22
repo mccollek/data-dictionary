@@ -1,7 +1,15 @@
 # README
 
-##Startup
-run `foreman start -f Procfile.dev` to start development server
+**TLDR**: See screenshots at the [blog](http://cityilluminated.com/?p=101&preview=true) and check out the [sample app](https://dd-test.herokuapp.com/map/index.html).
+
+A Data Dictionary (or [Data Inventory](http://labs.centerforgov.org/data-governance/data-inventory/)) is one of the requirements for the Bloomberg [What Works Cities](https://whatworkscities.bloomberg.org/certification/).    
+While you can just use a spreadsheet, it can be helpful to visualize the relationships between your data, hence this project. 
+
+## Startup
+- Run `foreman start -f Procfile.dev` to start development server
+
+## Setup
+See the [wiki](https://github.com/mccollek/data-dictionary/wiki/installation)
 
 ## LICENSE:
 
