@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Sensitivity.create([{name: '0 - No sensitive information'},
+                    {name: '1 - Internally sensitive information'},
+                    {name: '3 - Sensitive information when linked'},
+                    {name: '5 - Regulatory protected information (including CJIS, PII, PCI, HIPAA)'}])
+DataArchetype.create([{name: 'Location'},
+                      {name: 'Citizen'},
+                      {name: 'Employee'},
+                      {name: 'Payroll'},
+                      {name: 'Inventory'},
+                      {name: 'Financials'}])
