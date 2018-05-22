@@ -1,14 +1,16 @@
 import React from 'react';
 import thunk from 'redux-thunk';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux'
 import reduxLogger from 'redux-logger';
 import rootReducer from '../../reducers/index'
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 var store = createStore(
-    rootReducer, /* preloadedState, */ composeEnhancers(
+    rootReducer, /* preloadedState, */
+    composeEnhancers(
     applyMiddleware(thunk, reduxLogger)
-));
+    )
+);
 import PropTypes from 'prop-types';
 import style from './dictionary_workspace.scss';
 import DataSource from "../data_source/data_source";
